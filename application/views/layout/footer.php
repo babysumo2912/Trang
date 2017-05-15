@@ -8,14 +8,14 @@
 <footer>
     <section class = "col-md-12 footer-head">
         <p>
-            <b>PHÒNG TUYỂN DỤNG LAO ĐỘNG NHẬT BẢN</b><br>
-            <b>CÔNG TY CỔ PHẦN NHÂN LỰC TTC VIỆT NAM</b><br>
-            Trụ sở: Trung tâm thương mại Interserco - Số 2, Đường Tôn Thất Thuyết, Mỹ Đình, Từ Liêm, Hà Nội (Đối diện bến xe Mỹ Đình) <br>
+            <b>Phòng đào tạo trường đại học mỏ địa chất</b><br>
+            <b>TRƯỜNG ĐẠI HỌC MỎ ĐỊA CHẤT</b><br>
+            Trụ sở: Nhà C12 Tầng, Trường đại học mỏ địa chất- Cổ nhuế - từ liêm - hà nội<br>
             Tel : (84-4)73 036 888– Hotline: (84-9) 0303 3383 <br>
-            mail : info@japan.net.vn <br>
+            mail : humg@gmail.com <br>
         </p>
     </section>
     <section class = "col-md-12 footer-end">
-        <p>Coppyright &copy; 2013 Đức Ann</p>
+        <p>Coppyright &copy; 2013 Huyền Trang</p>
     </section>
 </footer>

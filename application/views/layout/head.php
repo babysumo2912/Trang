@@ -1,10 +1,13 @@
 <html>
     <head>
-        <title>Trường Đại Học Mỏ Địa Chất - Hà Nội</title>
+        <title><?php echo $title?></title>
         <meta charset = "utf-8">
-        <meta property = "og:title" content = "Trường Đại Học Mỏ - Địa Chất">
+        <meta property = "og:title" content = "Xuất khẩu lao động Nhật Bản 2017 | Không phí môi giới">
         <meta property = "og:url" content = "<?php echo base_url()?>">
-        <meta property = "og:description" content = "TRường ĐẠi Học số 1 Việt Nam">
+        <meta property = "og:description" content = "Công ty Xuất khẩu lao động Nhật Bản duy nhất nói không môi giới, tư vấn chính xác tổng phí, cam kết lương và xuất cảnh đúng hợp đồng, xkld Nhật Bản 2017">
+        <meta name="keywords" content="xuat khau lao dong nhat ban; lao dong nhat ban xuat khau lao dong; xuất khẩu lao động nhật bản; xkld nhat; xkld 2017; xuat khau lao dong nhat ban 2016">
+        <meta peoperty = "og:img" content = "<?php echo base_url()?>public/img/style/logottc.png">
+        <link rel="icon" href="<?php echo base_url()?>public/img/style/favicon.png">
         <link rel="stylesheet" href="<?php echo base_url()?>public/style/css/style.css">
         <link rel="stylesheet" href="<?php echo base_url()?>public/style/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url()?>public/style/css/bootstrap-theme.min.css">
@@ -17,10 +20,6 @@
     </head>
     <body class= "body">
     <header>
-        <div class = "text-center logo" style="margin: 0;">
-            <img src="<?php echo base_url()?>public/img/style/HUMG.png" alt="">
-            <h1 style = "margin: -30px 0 50px 0; padding: 0;">HUMG Connection</h1>
-        </div>
         <nav class="hd">
             <div class = "max">
                 <div class="container-fluid">
@@ -37,6 +36,8 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Giới Thiệu <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Tin Tức</a></li>
+                        <li><a href="#">Đào Tạo</a></li>
+                        <li><a href="#">Sinh Viên</a></li>
                         <li><a href="#">Đăng kí môn học</a></li>
                         <li><a href="#">Xem học phí</a></li>
                         <li><a href="#">Xem điểm</a></li>
@@ -48,18 +49,7 @@
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                    <?php 
-                    if(isset($sinhvien)){
-                        foreach ($sinhvien as $row) {
-                    ?>
-                    <li><a href="<?php echo base_url()?>sinhvien/"><?php echo $row->tensinhvien ?></a></li>
-                    <li><a href="<?php echo base_url()?>home/logout">Thoát</a></li>
-                    <?php     
-                        }
-                    }else{
-                     ?>
                         <li><a href="<?php echo base_url()?>sinhvien/login">Đăng nhập</a></li>
-                    <?php } ?>
 <!--                        <li class="dropdown">-->
 <!--                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
 <!--                            <ul class="dropdown-menu">-->
