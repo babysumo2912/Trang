@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2017 at 07:28 PM
+-- Generation Time: May 16, 2017 at 08:23 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -29,15 +29,38 @@ SET time_zone = "+00:00";
 CREATE TABLE `tb_admin` (
   `id_admin` int(11) NOT NULL,
   `tendangnhap` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `matkhau` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `matkhau` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ten` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tb_admin`
 --
 
-INSERT INTO `tb_admin` (`id_admin`, `tendangnhap`, `matkhau`) VALUES
-(1, 'admin', 'admin');
+INSERT INTO `tb_admin` (`id_admin`, `tendangnhap`, `matkhau`, `ten`) VALUES
+(1, 'admin', 'admin', 'Admin HUMG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_khoa`
+--
+
+CREATE TABLE `tb_khoa` (
+  `makhoa` int(11) NOT NULL,
+  `tenkhoa` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_khoa`
+--
+
+INSERT INTO `tb_khoa` (`makhoa`, `tenkhoa`) VALUES
+(1, 'Công nghệ thông tin'),
+(2, 'Dầu khí'),
+(3, 'Môi trường'),
+(4, 'Trắc Địa'),
+(7, 'Mỏ');
 
 -- --------------------------------------------------------
 
@@ -70,6 +93,12 @@ ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
+-- Indexes for table `tb_khoa`
+--
+ALTER TABLE `tb_khoa`
+  ADD PRIMARY KEY (`makhoa`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -78,6 +107,11 @@ ALTER TABLE `tb_admin`
 --
 ALTER TABLE `tb_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tb_khoa`
+--
+ALTER TABLE `tb_khoa`
+  MODIFY `makhoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

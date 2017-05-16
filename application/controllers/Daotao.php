@@ -3,8 +3,12 @@ class daotao extends CI_Controller{
 	public function index(){
 		$session_admin = $this->session->userdata('id_admin');
 		if(isset($session_admin)){
+			$admin = $this->admin_models->infomation('tendangnhap',$session_admin);
+			foreach ($admin as $key) {
+				$data['admin'] = $key->ten;
+			}
 			// $data['admin'] = 
-			$this->load->view('datao/home');
+			$this->load->view('daotao/home',$data);
 		}else redirect('daotao/login');
 
 	}

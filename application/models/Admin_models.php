@@ -11,8 +11,8 @@ class admin_models extends CI_Model{
 				}else return 2;
 			}else return 3;
 		}
-	public function infomation($id_admin){
-		$this->db->where('id_admin',$id_admin);
+	public function infomation($key,$id_admin){
+		$this->db->where($key,$id_admin);
 		$get  = $this->db->get('tb_admin');
 		if($get->num_rows() > 0){
 			return $get->result();
