@@ -22,7 +22,7 @@
 	$style = array(
 		'class' => 'form-group form-login'
 		);
-	echo form_open('daotao/login',$style);
+	echo form_open('daotao/home/login',$style);
 	 ?>
 	 <div class="text-center">
 	 	<img class="text-center" src="<?php echo base_url()?>public/img/style/HUMG.png" alt="">

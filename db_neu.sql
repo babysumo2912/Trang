@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2017 at 08:23 PM
+-- Generation Time: May 19, 2017 at 12:02 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -43,6 +43,60 @@ INSERT INTO `tb_admin` (`id_admin`, `tendangnhap`, `matkhau`, `ten`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_chuyennganh`
+--
+
+CREATE TABLE `tb_chuyennganh` (
+  `machuyennganh` int(11) NOT NULL,
+  `makhoa` int(11) NOT NULL,
+  `tenchuyennganh` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_danhsachsinhvien`
+--
+
+CREATE TABLE `tb_danhsachsinhvien` (
+  `id` int(11) NOT NULL,
+  `mamh` int(11) NOT NULL,
+  `nhommonhoc` int(11) NOT NULL,
+  `masinhvien` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_danhsachsinhvien`
+--
+
+INSERT INTO `tb_danhsachsinhvien` (`id`, `mamh`, `nhommonhoc`, `masinhvien`) VALUES
+(1, 4020101, 1, 1221050139),
+(2, 4020101, 1, 1221050220),
+(3, 4020101, 1, 1221050140);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_giaovien`
+--
+
+CREATE TABLE `tb_giaovien` (
+  `magiaovien` int(11) NOT NULL,
+  `tengiaovien` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_giaovien`
+--
+
+INSERT INTO `tb_giaovien` (`magiaovien`, `tengiaovien`) VALUES
+(1221050000, 'Trần Ngọc A'),
+(1221050001, 'Nguyễn Thị Huyền C'),
+(1221050002, 'Nguyễn Đắc D');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_khoa`
 --
 
@@ -57,10 +111,61 @@ CREATE TABLE `tb_khoa` (
 
 INSERT INTO `tb_khoa` (`makhoa`, `tenkhoa`) VALUES
 (1, 'Công nghệ thông tin'),
-(2, 'Dầu khí'),
+(2, 'Dầu khí1'),
 (3, 'Môi trường'),
-(4, 'Trắc Địa'),
+(4, 'Trắc Địa 1'),
 (7, 'Mỏ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_monhoc`
+--
+
+CREATE TABLE `tb_monhoc` (
+  `mamh` int(10) NOT NULL,
+  `tenmonhoc` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  `sotinchi` int(11) NOT NULL,
+  `maloai` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `manganh` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_monhoc`
+--
+
+INSERT INTO `tb_monhoc` (`mamh`, `tenmonhoc`, `sotinchi`, `maloai`, `manganh`) VALUES
+(4010101, 'Dai so ', 3, '1', 1),
+(4010501, 'Vat li dai cuong', 3, 'BB', 1),
+(4010601, 'Tieng Anh 1\r\n', 3, '0', 0),
+(4020101, 'nguyen li co ban chu nghia mac le nin', 2, 'BB', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_nhommonhoc`
+--
+
+CREATE TABLE `tb_nhommonhoc` (
+  `id` int(11) NOT NULL,
+  `nhommonhoc` int(11) NOT NULL,
+  `mamh` int(11) NOT NULL,
+  `magiaovien` int(11) NOT NULL,
+  `siso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_nhommonhoc`
+--
+
+INSERT INTO `tb_nhommonhoc` (`id`, `nhommonhoc`, `mamh`, `magiaovien`, `siso`) VALUES
+(1, 1, 4020101, 1221050000, 60),
+(2, 2, 4020101, 1221050001, 90),
+(3, 3, 4020101, 1221050002, 150),
+(4, 1, 4010501, 1221050000, 30),
+(5, 2, 4010501, 1221050001, 60),
+(6, 1, 4010601, 1221050002, 50),
+(7, 2, 4010601, 1221050002, 100);
 
 -- --------------------------------------------------------
 
@@ -72,15 +177,15 @@ CREATE TABLE `tb_sinhvien` (
   `masinhvien` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `matkhau` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `tensinhvien` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `hoatdong` int(11) NOT NULL
+  `malop` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tb_sinhvien`
 --
 
-INSERT INTO `tb_sinhvien` (`masinhvien`, `matkhau`, `tensinhvien`, `hoatdong`) VALUES
-('1221050140', 'ngocduc', 'Ngocduc', 0);
+INSERT INTO `tb_sinhvien` (`masinhvien`, `matkhau`, `tensinhvien`, `malop`) VALUES
+('1221050140', 'ngocduc', 'Ngocduc', 'DCCTKT57');
 
 --
 -- Indexes for dumped tables
@@ -93,10 +198,46 @@ ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
+-- Indexes for table `tb_chuyennganh`
+--
+ALTER TABLE `tb_chuyennganh`
+  ADD PRIMARY KEY (`machuyennganh`);
+
+--
+-- Indexes for table `tb_danhsachsinhvien`
+--
+ALTER TABLE `tb_danhsachsinhvien`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_giaovien`
+--
+ALTER TABLE `tb_giaovien`
+  ADD PRIMARY KEY (`magiaovien`);
+
+--
 -- Indexes for table `tb_khoa`
 --
 ALTER TABLE `tb_khoa`
   ADD PRIMARY KEY (`makhoa`);
+
+--
+-- Indexes for table `tb_monhoc`
+--
+ALTER TABLE `tb_monhoc`
+  ADD PRIMARY KEY (`mamh`);
+
+--
+-- Indexes for table `tb_nhommonhoc`
+--
+ALTER TABLE `tb_nhommonhoc`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_sinhvien`
+--
+ALTER TABLE `tb_sinhvien`
+  ADD PRIMARY KEY (`masinhvien`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -108,10 +249,25 @@ ALTER TABLE `tb_khoa`
 ALTER TABLE `tb_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `tb_chuyennganh`
+--
+ALTER TABLE `tb_chuyennganh`
+  MODIFY `machuyennganh` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tb_danhsachsinhvien`
+--
+ALTER TABLE `tb_danhsachsinhvien`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `tb_khoa`
 --
 ALTER TABLE `tb_khoa`
   MODIFY `makhoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `tb_nhommonhoc`
+--
+ALTER TABLE `tb_nhommonhoc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

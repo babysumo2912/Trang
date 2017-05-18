@@ -18,6 +18,13 @@ class sinhvien_models extends CI_Model{
 			return $get->result();
 		}else return false;
 	}
+	public function danhsachmonhoc($masinhvien){
+		$this->db->where('masinhvien',$masinhvien);
+		$danhsachmonhoc = $this->db->get('tb_danhsachsinhvien');
+		if($danhsachmonhoc->num_rows() > 0){
+			return $danhsachmonhoc->result();
+		}else return false;
+	}
 }
 
  ?>

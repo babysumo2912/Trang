@@ -37,7 +37,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Giới Thiệu <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Tin Tức</a></li>
-                        <li><a href="#">Đăng kí môn học</a></li>
+                        <li><a href="<?php echo base_url()?>sinhvien/dangkimonhoc">Đăng kí môn học</a></li>
                         <li><a href="#">Xem học phí</a></li>
                         <li><a href="#">Xem điểm</a></li>
                     </ul>
@@ -58,7 +58,7 @@
                         }
                     }else{
                      ?>
-                        <li><a href="<?php echo base_url()?>sinhvien/login">Đăng nhập</a></li>
+                        <li><a href="<?php echo base_url()?>sinhvien/sinhvien/login">Đăng nhập</a></li>
                     <?php } ?>
 <!--                        <li class="dropdown">-->
 <!--                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->

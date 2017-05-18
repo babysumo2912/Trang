@@ -1,6 +1,12 @@
 <?php include "header.php" ?>
 <div class = "row">
     <div class = "max">
+    <?php 
+    if(isset($thongbao)){
+        echo $thongbao;
+    }
+
+     ?>
         <a href=""><img src="<?php echo base_url()?>public/img/style/banner_1.png" alt="" width = "100%"></a>
     </div>
 </div>
@@ -41,7 +47,7 @@
             </div>
             <div class = "col-md-12 new-center">
                 <div class = "col-md-12 head-title">
-                    <a href = "" alt = "Xuất khẩu lao động">KHoa Công nghệ thông tin</a>
+                    <a href = "" alt = "Xuất khẩu lao động">HUMG kết nối</a>
                 </div>
                 <div class = "col-md-12 content-title">
                     <div class="media">
