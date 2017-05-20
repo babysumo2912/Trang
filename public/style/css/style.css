@@ -308,3 +308,14 @@ body{
 .wapperadmin{
     background: #ccc;
 }
+.menu-left ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu-left ul li{
+    line-height: 50px;
+}
+.menu-left ul li a{
+    display: block;
+}

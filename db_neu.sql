@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2017 at 12:02 AM
+-- Generation Time: May 20, 2017 at 02:13 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -43,13 +43,14 @@ INSERT INTO `tb_admin` (`id_admin`, `tendangnhap`, `matkhau`, `ten`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_chuyennganh`
+-- Table structure for table `tb_bomon`
 --
 
-CREATE TABLE `tb_chuyennganh` (
-  `machuyennganh` int(11) NOT NULL,
-  `makhoa` int(11) NOT NULL,
-  `tenchuyennganh` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+CREATE TABLE `tb_bomon` (
+  `mabomon` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `makhoa` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `kihieu` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `tenbomon` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -101,7 +102,8 @@ INSERT INTO `tb_giaovien` (`magiaovien`, `tengiaovien`) VALUES
 --
 
 CREATE TABLE `tb_khoa` (
-  `makhoa` int(11) NOT NULL,
+  `makhoa` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
+  `kihieu` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `tenkhoa` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -109,12 +111,13 @@ CREATE TABLE `tb_khoa` (
 -- Dumping data for table `tb_khoa`
 --
 
-INSERT INTO `tb_khoa` (`makhoa`, `tenkhoa`) VALUES
-(1, 'Công nghệ thông tin'),
-(2, 'Dầu khí1'),
-(3, 'Môi trường'),
-(4, 'Trắc Địa 1'),
-(7, 'Mỏ');
+INSERT INTO `tb_khoa` (`makhoa`, `kihieu`, `tenkhoa`) VALUES
+('CD', '01', 'Cơ điện'),
+('CT', '08 ', 'Công nghệ thông tin'),
+('DD', '01', 'Đại học đại cương'),
+('KT', '07', 'Kinh tế và QTKD'),
+('LL', '02', 'Khoa Lí luận chính trị'),
+('MT', '01', 'Môi trường');
 
 -- --------------------------------------------------------
 
@@ -185,7 +188,8 @@ CREATE TABLE `tb_sinhvien` (
 --
 
 INSERT INTO `tb_sinhvien` (`masinhvien`, `matkhau`, `tensinhvien`, `malop`) VALUES
-('1221050140', 'ngocduc', 'Ngocduc', 'DCCTKT57');
+('1221050140', 'ngocduc', 'Ngocduc', 'DCCTKT57'),
+('1221050420', 'trang', 'Huyền Trang', '111');
 
 --
 -- Indexes for dumped tables
@@ -196,12 +200,6 @@ INSERT INTO `tb_sinhvien` (`masinhvien`, `matkhau`, `tensinhvien`, `malop`) VALU
 --
 ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id_admin`);
-
---
--- Indexes for table `tb_chuyennganh`
---
-ALTER TABLE `tb_chuyennganh`
-  ADD PRIMARY KEY (`machuyennganh`);
 
 --
 -- Indexes for table `tb_danhsachsinhvien`
@@ -249,20 +247,10 @@ ALTER TABLE `tb_sinhvien`
 ALTER TABLE `tb_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `tb_chuyennganh`
---
-ALTER TABLE `tb_chuyennganh`
-  MODIFY `machuyennganh` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `tb_danhsachsinhvien`
 --
 ALTER TABLE `tb_danhsachsinhvien`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `tb_khoa`
---
-ALTER TABLE `tb_khoa`
-  MODIFY `makhoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tb_nhommonhoc`
 --
