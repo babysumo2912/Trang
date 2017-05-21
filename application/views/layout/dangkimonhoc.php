@@ -52,39 +52,75 @@ include'header.php';
  		 			<td>CL</td>
  		 		</tr>
  		 		<?php 
- 		 		if(isset($search)){
- 		 			foreach ($search as $key) {
-	 				$danhsach = $this->monhoc_models->getdanhsach($key->mamh,$key->nhommonhoc);
- 					$getinfo = $this->monhoc_models->getinfo($key->mamh);
- 					if($getinfo){
- 						foreach ($getinfo as $row) {};
- 						$giaovien = $this->monhoc_models->getgiaovien($key->magiaovien);
- 						if(isset($giaovien)){
- 							foreach ($giaovien as $title) {};
- 						}
- 					}
- 				?>
- 				<tr>
- 					<td>
- 						<a href="<?php echo base_url()?>sinhvien/dangkimonhoc/add/<?php echo $masinhvien?>/<?php echo $key->nhommonhoc ?>/<?php echo $key->mamh ?>" title="thêm vào danh sách môn học"><i class = "fa fa-plus"></i></a>
- 					</td>
-	 		 		<td>
-	 		 			<?php echo $key->mamh ?>
-	 		 		</td> 		 			
-	 		 		<td>
-	 		 			<a href="<?php echo base_url()?>sinhvien/danhsachlophoc/view/<?php echo $key->mamh ?>/<?php echo $key->nhommonhoc?>">
-	 		 				<?php echo $row->tenmonhoc ?>
-	 		 			</a>
-	 		 		</td>
-	 		 		<td><?php echo $title->tengiaovien ?></td>
-	 		 		<td><?php echo $key->nhommonhoc ?></td>
-	 		 		<td><?php echo $row->sotinchi ?></td>
-	 		 		<td><?php echo $key->siso ?></td>
-	 		 		<td><?php if(isset($danhsach)){echo $key->siso - count($danhsach) ;}else{echo $key->siso; } ?></td>
- 		 		</tr>
- 				<?php
- 		 			}
- 		 		}
+ 		 		if(isset($search)) {
+                    foreach ($search as $key) {
+                        $danhsach = $this->monhoc_models->getdanhsach($key->mamh, $key->nhommonhoc);
+                        $getinfo = $this->monhoc_models->getinfo($key->mamh);
+                        if ($getinfo) {
+                            foreach ($getinfo as $row) {
+                            };
+                            $giaovien = $this->monhoc_models->getgiaovien($key->magiaovien);
+                            if (isset($giaovien)) {
+                                foreach ($giaovien as $title) {
+                                };
+                            }
+                        }
+                        ?>
+                        <tr
+                            <?php
+                            if (isset($danhsach)) {
+                                if ($key->siso - count($danhsach) <= 0) {
+                            ?>
+                            style="background: #ccc"
+                            <?php }
+                            }?>
+                        >
+                            <td>
+                                <?php
+                                if (isset($danhsach)) {
+                                    if ($key->siso - count($danhsach) <= 0) {
+                                        echo "";
+                                    } else{
+                                ?>
+                                <a href="<?php echo base_url() ?>sinhvien/dangkimonhoc/add/<?php echo $masinhvien ?>/<?php echo $key->nhommonhoc ?>/<?php echo $key->mamh ?>"
+                                   title="thêm vào danh sách môn học"><i class="fa fa-plus"></i></a>
+                                <?php
+                                    }
+
+                                }else{
+                                ?>
+                                    <a href="<?php echo base_url() ?>sinhvien/dangkimonhoc/add/<?php echo $masinhvien ?>/<?php echo $key->nhommonhoc ?>/<?php echo $key->mamh ?>"
+                                       title="thêm vào danh sách môn học"><i class="fa fa-plus"></i></a>
+                                <?php
+                                }?>
+                            </td>
+                            <td>
+                                <?php echo $key->mamh ?>
+                            </td>
+                            <td>
+                                <a target="_blank"
+                                   href="<?php echo base_url() ?>sinhvien/danhsachlophoc/view/<?php echo $key->mamh ?>/<?php echo $key->nhommonhoc ?>">
+                                    <?php echo $row->tenmonhoc ?>
+                                </a>
+                            </td>
+                            <td><?php echo $title->tengiaovien ?></td>
+                            <td><?php echo $key->nhommonhoc ?></td>
+                            <td><?php echo $row->sotinchi ?></td>
+                            <td><?php echo $key->siso ?></td>
+                            <td>
+                                <?php
+                                if (isset($danhsach)) {
+                                    if ($key->siso - count($danhsach) <= 0) {
+                                        echo "Full";
+                                    } else echo $key->siso - count($danhsach);
+
+                                } else echo $key->siso; ?>
+                            </td>
+                        </tr>
+                        <?php
+
+                    }
+                }
 
  		 		 ?>
  		 	</table>
@@ -117,12 +153,16 @@ include'header.php';
 			 <tr>
 			 	<td><?php echo $i ?></td>
 			 	<td><?php echo $key->mamh ?></td>
-			 	<td><?php echo $row->tenmonhoc ?></td>
+			 	<td>
+                    <a target="_blank" href="<?php echo base_url()?>sinhvien/danhsachlophoc/view/<?php echo $key->mamh ?>/<?php echo $key->nhommonhoc?>">
+                        <?php echo $row->tenmonhoc ?>
+                    </a>
+                </td>
 			 	<td><?php echo $key->nhommonhoc?></td>
 			 	<td><?php echo $row->sotinchi ?></td>
 			 	<td><?php echo number_format($row->sotinchi * 300000);?></td>
 			 	<td>
-			 		<a href="" title="Xóa"> <i class = "fa fa-remove"></i></a>
+			 		<a href="<?php echo base_url()?>sinhvien/dangkimonhoc/delete/<?php echo $key->mamh?>/<?php echo $key->nhommonhoc?>/<?php echo $key->masinhvien ?>" title="Xóa"> <i class = "fa fa-remove"></i></a>
 			 	</td>
 			 </tr>
 			 <?php

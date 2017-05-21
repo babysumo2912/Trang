@@ -4,7 +4,14 @@
 */
 class monhoc_models extends CI_model
 {
-	
+	function get_allinfo($mamonhoc,$nhommonhoc){
+        $this->db->where('mamh',$mamonhoc);
+        $this->db->where('nhommonhoc',$nhommonhoc);
+        $getdanhsach = $this->db->get('tb_nhommonhoc');
+        if($getdanhsach->num_rows() > 0){
+            return $getdanhsach->result();
+        }
+    }
 	function getinfo($mamonhoc){
 		$this->db->where('mamh',$mamonhoc);
 		$getinfo = $this->db->get('tb_monhoc');
@@ -47,6 +54,15 @@ class monhoc_models extends CI_model
 			}else return 2;
 		}
 	}
+	function delete($mamonhoc,$nhommonhoc,$masinhvien){
+	    $this->db->where('mamh',$mamonhoc);
+        $this->db->where('nhommonhoc',$nhommonhoc);
+        $this->db->where('masinhvien',$masinhvien);
+        $query = $this->db->delete('tb_danhsachsinhvien');
+        if(isset($query)){
+            return true;
+        }else return false;
+    }
 }
 
 

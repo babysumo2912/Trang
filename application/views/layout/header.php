@@ -38,7 +38,7 @@
                         <li class="active"><a href="#">Giới Thiệu <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Tin Tức</a></li>
                         <li><a href="<?php echo base_url()?>sinhvien/dangkimonhoc">Đăng kí môn học</a></li>
-                        <li><a href="#">Xem học phí</a></li>
+                        <li><a href="<?php echo base_url()?>sinhvien/xemhocphi">Xem học phí</a></li>
                         <li><a href="#">Xem điểm</a></li>
                     </ul>
                     <form class="navbar-form navbar-left">

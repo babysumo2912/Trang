@@ -21,6 +21,10 @@ class dangkimonhoc extends CI_Controller
 		}
         $session_sinhvien = $this->session->userdata('masinhvien');
 		if(isset($session_sinhvien)){
+		    $err = $this->session->flashdata('err');
+		    if(isset($err)){
+		        $data['err'] = $err;
+            }
 			$data['sinhvien'] = $this->sinhvien_models->infomation($session_sinhvien);
 			$danhsachmonhoc_sinhvien = $this->sinhvien_models->danhsachmonhoc($session_sinhvien);
 			if($danhsachmonhoc_sinhvien){
@@ -46,6 +50,19 @@ class dangkimonhoc extends CI_Controller
 		}
 	}
 	function add($masinhvien,$nhommonhoc,$mamh){
+	    $get_siso = $this->monhoc_models->get_allinfo($mamh,$nhommonhoc);
+	    if($get_siso){
+	        foreach ($get_siso as $row){};
+        }
+        $get_cl = $this->monhoc_models->getdanhsach($mamh,$nhommonhoc);
+	    if($get_cl){
+            $cl = count($get_cl);
+        }
+        if($row->siso - $cl <= 0){
+            $err = "Lớp học đã hết chỗ để đăng kí";
+            $this->session->set_flashdata('err',$err);
+            redirect('sinhvien/dangkimonhoc');
+        }
 		$data_add = array(
 			'mamh' => $mamh,
 			'nhommonhoc' => $nhommonhoc,
@@ -63,6 +80,14 @@ class dangkimonhoc extends CI_Controller
 		}
 
 	}
+	function delete($mamonhoc,$nhommonhoc,$masinhvien){
+        $delete = $this->monhoc_models->delete($mamonhoc,$nhommonhoc,$masinhvien);
+        if($delete){
+            $err = "Xoá thành công!";
+            $this->session->set_flashdata('err',$err);
+            redirect('sinhvien/dangkimonhoc');
+        }
+    }
 }
 
  ?>

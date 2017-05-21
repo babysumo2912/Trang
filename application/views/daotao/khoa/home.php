@@ -65,7 +65,7 @@ include 'header.php';
                 <td>
                     <button type="submit" style="border:none; background: inherit"><i class="fa fa-pencil"></i></button>
                     <?php echo form_close();?>
-                    <a href=""><i class="fa fa-remove"></i></a>
+                    <a href="<?php echo base_url()?>"><i class="fa fa-remove"></i></a>
                 </td>
             </tr>
         <?php

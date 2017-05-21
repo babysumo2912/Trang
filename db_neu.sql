@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2017 at 02:13 PM
+-- Generation Time: May 22, 2017 at 12:18 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -73,7 +73,8 @@ CREATE TABLE `tb_danhsachsinhvien` (
 INSERT INTO `tb_danhsachsinhvien` (`id`, `mamh`, `nhommonhoc`, `masinhvien`) VALUES
 (1, 4020101, 1, 1221050139),
 (2, 4020101, 1, 1221050220),
-(3, 4020101, 1, 1221050140);
+(3, 4020101, 1, 1221050140),
+(7, 4020101, 1, 1221050420);
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ CREATE TABLE `tb_nhommonhoc` (
 --
 
 INSERT INTO `tb_nhommonhoc` (`id`, `nhommonhoc`, `mamh`, `magiaovien`, `siso`) VALUES
-(1, 1, 4020101, 1221050000, 60),
+(1, 1, 4020101, 1221050000, 4),
 (2, 2, 4020101, 1221050001, 90),
 (3, 3, 4020101, 1221050002, 150),
 (4, 1, 4010501, 1221050000, 30),
@@ -180,16 +181,19 @@ CREATE TABLE `tb_sinhvien` (
   `masinhvien` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `matkhau` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `tensinhvien` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `malop` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `malop` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `tinhtrang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tb_sinhvien`
 --
 
-INSERT INTO `tb_sinhvien` (`masinhvien`, `matkhau`, `tensinhvien`, `malop`) VALUES
-('1221050140', 'ngocduc', 'Ngocduc', 'DCCTKT57'),
-('1221050420', 'trang', 'Huyền Trang', '111');
+INSERT INTO `tb_sinhvien` (`masinhvien`, `matkhau`, `tensinhvien`, `malop`, `tinhtrang`) VALUES
+('1221050139', 'huy', 'Nguyễn Đắc Huy', 'DCCTKT57', 0),
+('1221050140', 'ngocduc', 'Ngocduc', 'DCCTKT57', 0),
+('1221050220', 'hien', 'Vũ Đức Hiển', 'DCCTKT57', 0),
+('1221050420', 'trang', 'Huyền Trang', 'DCCTKT57', 0);
 
 --
 -- Indexes for dumped tables
@@ -250,7 +254,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_danhsachsinhvien`
 --
 ALTER TABLE `tb_danhsachsinhvien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tb_nhommonhoc`
 --
