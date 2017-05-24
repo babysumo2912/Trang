@@ -58,7 +58,7 @@
                         }
                     }else{
                      ?>
-                        <li><a href="<?php echo base_url()?>sinhvien/sinhvien/login">Đăng nhập</a></li>
+                        <li><a href="<?php echo base_url()?>sinhvien/taikhoan/login">Đăng nhập</a></li>
                     <?php } ?>
 <!--                        <li class="dropdown">-->
 <!--                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->

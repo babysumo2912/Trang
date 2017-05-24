@@ -22,7 +22,7 @@
 	$style = array(
 		'class' => 'form-group form-login'
 		);
-	echo form_open('sinhvien/sinhvien/login',$style);
+	echo form_open('sinhvien/taikhoan/login',$style);
 	 ?>
 
 	 <div class="text-center">
