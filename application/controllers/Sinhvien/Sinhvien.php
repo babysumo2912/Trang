@@ -1,13 +1,12 @@
 <?php 
-class taikhoan extends CI_Controller{
+class sinhvien extends CI_Controller{
 	public function index(){
 		$session_sinhvien = $this->session->userdata('masinhvien');
 		if(isset($session_sinhvien)){
 			echo 1;
-		}else redirect('taikhoan/login');
+		}else redirect('sinhvien/login');
 
 	}
-
 	public function login(){
 		$data = array();
 		$session_login = $this->session->userdata('id_user');

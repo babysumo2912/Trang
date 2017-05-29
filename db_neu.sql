@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2017 at 12:18 AM
+-- Generation Time: May 25, 2017 at 12:44 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -63,18 +63,22 @@ CREATE TABLE `tb_danhsachsinhvien` (
   `id` int(11) NOT NULL,
   `mamh` int(11) NOT NULL,
   `nhommonhoc` int(11) NOT NULL,
-  `masinhvien` int(11) NOT NULL
+  `masinhvien` int(11) NOT NULL,
+  `diemA` int(11) NOT NULL,
+  `diemA_2` int(11) NOT NULL,
+  `diemB` int(11) NOT NULL,
+  `diemC` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tb_danhsachsinhvien`
 --
 
-INSERT INTO `tb_danhsachsinhvien` (`id`, `mamh`, `nhommonhoc`, `masinhvien`) VALUES
-(1, 4020101, 1, 1221050139),
-(2, 4020101, 1, 1221050220),
-(3, 4020101, 1, 1221050140),
-(7, 4020101, 1, 1221050420);
+INSERT INTO `tb_danhsachsinhvien` (`id`, `mamh`, `nhommonhoc`, `masinhvien`, `diemA`, `diemA_2`, `diemB`, `diemC`) VALUES
+(1, 4020101, 1, 1221050139, 0, 0, 0, 0),
+(2, 4020101, 1, 1221050220, 0, 0, 0, 0),
+(10, 4020101, 1, 1221050140, 0, 0, 0, 0),
+(12, 4010501, 1, 1221050420, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -84,6 +88,7 @@ INSERT INTO `tb_danhsachsinhvien` (`id`, `mamh`, `nhommonhoc`, `masinhvien`) VAL
 
 CREATE TABLE `tb_giaovien` (
   `magiaovien` int(11) NOT NULL,
+  `matkhau` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `tengiaovien` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -91,10 +96,10 @@ CREATE TABLE `tb_giaovien` (
 -- Dumping data for table `tb_giaovien`
 --
 
-INSERT INTO `tb_giaovien` (`magiaovien`, `tengiaovien`) VALUES
-(1221050000, 'Trần Ngọc A'),
-(1221050001, 'Nguyễn Thị Huyền C'),
-(1221050002, 'Nguyễn Đắc D');
+INSERT INTO `tb_giaovien` (`magiaovien`, `matkhau`, `tengiaovien`) VALUES
+(1221050000, '0000', 'Trần Ngọc A'),
+(1221050001, '0001', 'Nguyễn Thị Huyền C'),
+(1221050002, '0002', 'Nguyễn Đắc D');
 
 -- --------------------------------------------------------
 
@@ -115,6 +120,7 @@ CREATE TABLE `tb_khoa` (
 INSERT INTO `tb_khoa` (`makhoa`, `kihieu`, `tenkhoa`) VALUES
 ('CD', '01', 'Cơ điện'),
 ('CT', '08 ', 'Công nghệ thông tin'),
+('d', '9', 'b'),
 ('DD', '01', 'Đại học đại cương'),
 ('KT', '07', 'Kinh tế và QTKD'),
 ('LL', '02', 'Khoa Lí luận chính trị'),
@@ -254,7 +260,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_danhsachsinhvien`
 --
 ALTER TABLE `tb_danhsachsinhvien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tb_nhommonhoc`
 --

@@ -39,7 +39,7 @@
                         <li><a href="#">Tin Tức</a></li>
                         <li><a href="<?php echo base_url()?>sinhvien/dangkimonhoc">Đăng kí môn học</a></li>
                         <li><a href="<?php echo base_url()?>sinhvien/xemhocphi">Xem học phí</a></li>
-                        <li><a href="#">Xem điểm</a></li>
+                        <li><a href="<?php echo base_url()?>sinhvien/xemdiem">Xem điểm</a></li>
                     </ul>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
