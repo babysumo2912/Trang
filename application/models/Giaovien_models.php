@@ -27,6 +27,16 @@ class giaovien_models extends CI_Model {
             return $class->result();
         }else return false;
     }
+    public function add_diem($mamonhoc,$nhommonhoc,$data){
+//        echo $data['masinhvien'];
+        $this->db->where('mamh',$mamonhoc);
+        $this->db->where('nhommonhoc',$nhommonhoc);
+        $this->db->where('masinhvien',$data['masinhvien']);
+        $query = $this->db->update('tb_danhsachsinhvien',$data);
+//        if(isset($query)){
+//            return true;
+//        }return false;
+    }
 }
 
 ?>

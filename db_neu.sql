@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2017 at 12:44 AM
+-- Generation Time: May 31, 2017 at 06:05 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -75,10 +75,8 @@ CREATE TABLE `tb_danhsachsinhvien` (
 --
 
 INSERT INTO `tb_danhsachsinhvien` (`id`, `mamh`, `nhommonhoc`, `masinhvien`, `diemA`, `diemA_2`, `diemB`, `diemC`) VALUES
-(1, 4020101, 1, 1221050139, 0, 0, 0, 0),
-(2, 4020101, 1, 1221050220, 0, 0, 0, 0),
-(10, 4020101, 1, 1221050140, 0, 0, 0, 0),
-(12, 4010501, 1, 1221050420, 0, 0, 0, 0);
+(38, 4020101, 1, 1221050140, 6, 8, 8, 4),
+(50, 4020101, 1, 1221050220, 5, 5, 7, 10);
 
 -- --------------------------------------------------------
 
@@ -260,7 +258,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_danhsachsinhvien`
 --
 ALTER TABLE `tb_danhsachsinhvien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `tb_nhommonhoc`
 --
