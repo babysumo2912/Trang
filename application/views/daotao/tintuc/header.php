@@ -17,6 +17,8 @@
     <script src="<?php echo base_url()?>public/style/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url()?>public/style/js/filejs.js"></script>
     <link rel="stylesheet" href="<?php echo base_url()?>public/style/css/w3school.css">
+    <script type="text/javascript" src="<?php echo base_url();?>public/style/plugin/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
 </head>
 <body class= "body">
 <header>
@@ -39,7 +41,7 @@
                         <li><a href="<?php echo base_url()?>khoa">Sinh viên</a></li>
                         <li><a href="<?php echo base_url()?>chuyennganh">Môn học</a></li>
                         <li><a href="#">Quản lí điểm</a></li>
-                        <li><a href="<?php echo base_url()?>daotao/tintuc/baivietmoi">Tin tức</a></li>
+                        <li><a href="#">Tin tức</a></li>
                     </ul>
                     <!-- <form class="navbar-form navbar-left">
                         <div class="form-group">

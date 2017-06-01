@@ -8,13 +8,22 @@
  */
 class home extends CI_Controller{
     public function index(){
-        $data = array();
-        $err = $this->session->flashdata('err');
-        if(isset($err)){
-            $data['err'] = $err;
-        }
-        $data['khoa'] = $this->khoa_models->get();
-        $this->load->view('daotao/khoa/home',$data);
+        $session_admin = $this->session->userdata('id_admin');
+        if(isset($session_admin)){
+            $admin = $this->admin_models->infomation('tendangnhap',$session_admin);
+            $data['khoa'] = $this->khoa_models->get();
+            foreach ($admin as $key) {
+                $data['admin'] = $key->ten;
+            }
+            // $data['admin'] =
+            $data = array();
+            $err = $this->session->flashdata('err');
+            if(isset($err)){
+                $data['err'] = $err;
+            }
+            $data['khoa'] = $this->khoa_models->get();
+            $this->load->view('daotao/khoa/home',$data);
+        }else redirect('daotao/home/login');
     }
     public function add(){
     $tenkhoa = $this->input->post('tenkhoa');

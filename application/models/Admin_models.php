@@ -18,6 +18,12 @@ class admin_models extends CI_Model{
 			return $get->result();
 		}else return false;
 	}
+	public function themtintuc($data){
+	    $query = $this->db->insert('tb_tintuc',$data);
+	    if(isset($query)){
+	        return true;
+        }else return false;
+    }
 }
 
  ?>
