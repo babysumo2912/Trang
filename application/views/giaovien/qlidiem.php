@@ -31,7 +31,7 @@ include'header.php'
         ?>
         <label for="">Mã môn học:</label>&nbsp;<span> <?php echo $row->mamh?></span><br>
         <label for="">Nhóm môn học:</label>&nbsp;<span> <?php echo $row->nhommonhoc?></span><br>
-        <label for="">Tên lớp:</label>&nbsp;<span><?php echo $value->tenmonhoc?></span><br>
+        <label for="">Tên học phần:</label>&nbsp;<span><?php echo $value->tenmonhoc?></span><br>
         <label for="">Giáo viên:</label>&nbsp;<span><?php echo $tgv->tengiaovien?></span>
     </div>
     <table class="table table-bordered table-hover">
@@ -58,7 +58,29 @@ include'header.php'
             $i = 1;
             foreach ($dssv as $row){
                 $sinhvien = $this->sinhvien_models->infomation($row->masinhvien);
+                if($sinhvien){
+                    foreach ($sinhvien as $sv){};
+                }
+                $monhoc = $this->monhoc_models->getinfo($row->mamh);
+
+                if($monhoc){
+                    foreach ($monhoc as $value){}
+                }
+                $magiaovien = $this->monhoc_models->get_allinfo($row->mamh,$row->nhommonhoc);
+                if($magiaovien){
+                    foreach ($magiaovien as $gv){}
+                }
+                $tengiaovien = $this->monhoc_models->getgiaovien($gv->magiaovien);
+                if($tengiaovien){
+                    foreach ($tengiaovien as $tgv) {}
+                }
+                echo form_hidden('diem['.$row->masinhvien.'][mamonhoc]', $row->mamh);
+                echo form_hidden('diem['.$row->masinhvien.'][nhommonhoc]', $row->nhommonhoc);
+                echo form_hidden('diem['.$row->masinhvien.'][tenmonhoc]',$value->tenmonhoc);
+                echo form_hidden('diem['.$row->masinhvien.'][tengiaovien]', $tgv->tengiaovien);
                 echo form_hidden('diem['.$row->masinhvien.'][masinhvien]', $row->masinhvien);
+                echo form_hidden('diem['.$row->masinhvien.'][tensinhvien]', $sv->tensinhvien);
+                echo form_hidden('diem['.$row->masinhvien.'][lopsinhvien]', $sv->malop);
                 echo form_hidden('diem['.$row->masinhvien.'][diemA]', $row->diemA);
                 echo form_hidden('diem['.$row->masinhvien.'][diemA_2]', $row->diemA_2);
                 echo form_hidden('diem['.$row->masinhvien.'][diemB]', $row->diemB);
@@ -161,6 +183,7 @@ include'header.php'
     </table>
     <div class="text-center">
         <input type="submit" class="btn btn-success" value="Save">
+        <a href="<?php echo base_url()?>data_diem.xlsx" class="btn btn-info"><i class="fa fa-print"></i>&nbsp;In ra file excel</a>
     </div>
     <?php echo form_close();?>
 </section>

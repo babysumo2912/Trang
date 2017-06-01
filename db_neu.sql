@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2017 at 06:05 PM
+-- Generation Time: Jun 01, 2017 at 01:00 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -75,8 +75,8 @@ CREATE TABLE `tb_danhsachsinhvien` (
 --
 
 INSERT INTO `tb_danhsachsinhvien` (`id`, `mamh`, `nhommonhoc`, `masinhvien`, `diemA`, `diemA_2`, `diemB`, `diemC`) VALUES
-(38, 4020101, 1, 1221050140, 6, 8, 8, 4),
-(50, 4020101, 1, 1221050220, 5, 5, 7, 10);
+(38, 4020101, 1, 1221050140, 10, 0, 10, 10),
+(50, 4020101, 1, 1221050220, 1, 5, 7, 9);
 
 -- --------------------------------------------------------
 
