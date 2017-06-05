@@ -1,6 +1,6 @@
 <?php
 class Diem extends CI_Controller{
-    public function add($mamonhoc,$nhommonhoc){
+    public function add($mamonhoc,$nhommonhoc,$id_hocki){
         $add_diem = $this->input->post('diem');
         if(isset($add_diem)){
 //            var_dump($add_diem);die();
@@ -10,12 +10,43 @@ class Diem extends CI_Controller{
                 $diemA_2 = $item['diemA_2'];
                 $diemB = $item['diemB'];
                 $diemC = $item['diemC'];
+                if($diemA <= $diemA_2){
+                    $diemA_cc = $diemA_2;
+                }else $diemA_cc = $diemA;
+                $diemtks = 0.6 * $diemA_cc + 0.3 * $diemB + 0.1 * $diemC;
+                if($diemtks<4.0){
+                    $diemtkc =  "F";
+                }
+                if($diemtks>=4.0 && $diemtks<5.0){
+                    $diemtkc =  "D";
+                }
+                if($diemtks>=5.0 && $diemtks<5.5){
+                    $diemtkc =  "D+";
+                }
+
+                if($diemtks>=5.5 && $diemtks<6.5){
+                    $diemtkc =  "C";
+                }
+                if($diemtks>=6.5 && $diemtks<7.0){
+                    $diemtkc =  "C+";
+                }
+                if($diemtks>=7.0 && $diemtks<8.){
+                    $diemtkc =  "B";
+                }
+                if($diemtks>=8.0 && $diemtks<8.5){
+                    $diemtkc =  "B+";
+                }
+                if($diemtks>=8.5){
+                    $diemtkc =  "A";
+                }
                 $update = array(
                     'masinhvien' => $masinhvien,
                     'diemA' => $diemA,
                     'diemA_2' => $diemA_2,
                     'diemB' => $diemB,
                     'diemC' => $diemC,
+                    'TK10' => $diemtks,
+                    'TKCH' => $diemtkc,
                 );
 //                var_dump($update);
     //                echo $mamonhoc;
@@ -43,23 +74,25 @@ class Diem extends CI_Controller{
             $objPHPExcel = new PHPExcel();
 
             $objPHPExcel->setActiveSheetIndex(0)
-                ->setCellValue('A1', 'Mã học phần')
-                ->setCellValue('A2', 'Nhóm học phần')
-                ->setCellValue('A3', ' Tên học phần')
-                ->setCellValue('A4', ' Tên giáo viên')
-                ->setCellValue('A6', 'STT')
-                ->setCellValue('B6', 'Mã sinh viên')
-                ->setCellValue('C6', 'Tên sinh viên')
-                ->setCellValue('D6', 'Lớp')
-                ->setCellValue('E6', 'Điểm A(1)')
-                ->setCellValue('F6', 'Điểm A(2)')
-                ->setCellValue('G6', 'Điểm B')
-                ->setCellValue('H6', 'Điểm C')
-                ->setCellValue('I6', 'TK(10)')
-                ->setCellValue('J6', 'TK(CH)');
+                ->setCellValue('A1', 'Năm học')
+                ->setCellValue('A2', 'Học kì')
+                ->setCellValue('A3', 'Mã học phần')
+                ->setCellValue('A4', 'Nhóm học phần')
+                ->setCellValue('A5', ' Tên học phần')
+                ->setCellValue('A6', ' Tên giáo viên')
+                ->setCellValue('A8', 'STT')
+                ->setCellValue('B8', 'Mã sinh viên')
+                ->setCellValue('C8', 'Tên sinh viên')
+                ->setCellValue('D8', 'Lớp')
+                ->setCellValue('E8', 'Điểm A(1)')
+                ->setCellValue('F8', 'Điểm A(2)')
+                ->setCellValue('G8', 'Điểm B')
+                ->setCellValue('H8', 'Điểm C')
+                ->setCellValue('I8', 'TK(10)')
+                ->setCellValue('J8', 'TK(CH)');
 
             $lists = $add_diem;
-            $i = 7;
+            $i = 9;
             foreach ($lists as $row)
             {
                 if($row['diemA_2'] > $row['diemA']){
@@ -92,11 +125,13 @@ class Diem extends CI_Controller{
                     $row['tkch'] =  "A";
                 }
                 $objPHPExcel->setActiveSheetIndex(0)
-                    ->setCellValue('B1', $row['mamonhoc'])
-                    ->setCellValue('B2', $row['nhommonhoc'])
-                    ->setCellValue('B3', $row['tenmonhoc'])
-                    ->setCellValue('B4', $row['tengiaovien'])
-                    ->setCellValue('A'.$i, $i-1)
+                    ->setCellValue('B1', $row['nambatdau'].'-'.$row['namketthuc'])
+                    ->setCellValue('B2', $row['hocki'])
+                    ->setCellValue('B3', $row['mamonhoc'])
+                    ->setCellValue('B4', $row['nhommonhoc'])
+                    ->setCellValue('B5', $row['tenmonhoc'])
+                    ->setCellValue('B6', $row['tengiaovien'])
+                    ->setCellValue('A'.$i, $i-8)
                     ->setCellValue('B'.$i, $row['masinhvien'])
                     ->setCellValue('C'.$i, $row['tensinhvien'])
                     ->setCellValue('D'.$i, $row['lopsinhvien'])
@@ -144,7 +179,7 @@ class Diem extends CI_Controller{
 //        $full_path = 'data_diem.xlsx';//duong dan file
 //        $objWriter->save($full_path);
         //end file excel
-        redirect('giaovien/home/diemsinhvien/'.$mamonhoc.'/'.$nhommonhoc);
+        redirect('giaovien/home/diemsinhvien/'.$mamonhoc.'/'.$nhommonhoc.'/'.$id_hocki);
     }
 }
 

@@ -24,7 +24,7 @@ include'header.php';
         <tr>
             <td><?php echo $i ?></td>
             <td><?php echo $key->mamh?></td>
-            <td><a href="<?php echo base_url()?>giaovien/home/diemsinhvien/<?php echo $key->mamh?>/<?php echo $key->nhommonhoc?>" style="display: block"><?php echo $monhoc->tenmonhoc?></a></td>
+            <td><a href="<?php echo base_url()?>giaovien/home/diemsinhvien/<?php echo $key->mamh?>/<?php echo $key->nhommonhoc?>/<?php echo $key->id_hocki?>" style="display: block"><?php echo $monhoc->tenmonhoc?></a></td>
             <td><?php echo $key->nhommonhoc?></td>
         </tr>
         <?php

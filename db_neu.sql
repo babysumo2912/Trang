@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2017 at 11:28 PM
+-- Generation Time: Jun 05, 2017 at 07:50 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -61,22 +61,27 @@ CREATE TABLE `tb_bomon` (
 
 CREATE TABLE `tb_danhsachsinhvien` (
   `id` int(11) NOT NULL,
+  `id_hocki` int(11) NOT NULL,
   `mamh` int(11) NOT NULL,
   `nhommonhoc` int(11) NOT NULL,
   `masinhvien` int(11) NOT NULL,
   `diemA` int(11) NOT NULL,
   `diemA_2` int(11) NOT NULL,
   `diemB` int(11) NOT NULL,
-  `diemC` int(11) NOT NULL
+  `diemC` int(11) NOT NULL,
+  `TK10` float NOT NULL,
+  `TKCH` varchar(2) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tb_danhsachsinhvien`
 --
 
-INSERT INTO `tb_danhsachsinhvien` (`id`, `mamh`, `nhommonhoc`, `masinhvien`, `diemA`, `diemA_2`, `diemB`, `diemC`) VALUES
-(38, 4020101, 1, 1221050140, 10, 0, 10, 10),
-(50, 4020101, 1, 1221050220, 1, 5, 7, 9);
+INSERT INTO `tb_danhsachsinhvien` (`id`, `id_hocki`, `mamh`, `nhommonhoc`, `masinhvien`, `diemA`, `diemA_2`, `diemB`, `diemC`, `TK10`, `TKCH`) VALUES
+(38, 14, 4020101, 1, 1221050140, 9, 0, 10, 10, 9.4, 'A'),
+(50, 14, 4020101, 1, 1221050220, 8, 0, 5, 10, 7.3, 'B'),
+(51, 14, 4020101, 1, 1221050139, 8, 0, 5, 10, 7.3, 'B'),
+(52, 14, 4020101, 1, 1221050420, 10, 0, 5, 10, 8.5, 'A');
 
 -- --------------------------------------------------------
 
@@ -98,6 +103,39 @@ INSERT INTO `tb_giaovien` (`magiaovien`, `matkhau`, `tengiaovien`) VALUES
 (1221050000, '0000', 'Trần Ngọc A'),
 (1221050001, '0001', 'Nguyễn Thị Huyền C'),
 (1221050002, '0002', 'Nguyễn Đắc D');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_hocki`
+--
+
+CREATE TABLE `tb_hocki` (
+  `id_hocki` int(11) NOT NULL,
+  `tenhocki` int(11) NOT NULL,
+  `nambatdau` int(11) NOT NULL,
+  `namketthuc` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_hocki`
+--
+
+INSERT INTO `tb_hocki` (`id_hocki`, `tenhocki`, `nambatdau`, `namketthuc`) VALUES
+(1, 1, 2012, 2013),
+(2, 2, 2012, 2013),
+(3, 3, 2012, 2013),
+(4, 1, 2013, 2014),
+(5, 2, 2013, 2014),
+(6, 3, 2013, 2014),
+(7, 1, 2014, 2015),
+(8, 2, 2014, 2015),
+(9, 3, 2014, 2015),
+(10, 1, 2015, 2016),
+(11, 2, 2015, 2016),
+(12, 3, 2015, 2016),
+(13, 1, 2016, 2017),
+(14, 2, 2016, 2017);
 
 -- --------------------------------------------------------
 
@@ -143,10 +181,9 @@ CREATE TABLE `tb_monhoc` (
 --
 
 INSERT INTO `tb_monhoc` (`mamh`, `tenmonhoc`, `sotinchi`, `maloai`, `manganh`) VALUES
-(4010101, 'Dai so ', 3, '1', 1),
-(4010501, 'Vat li dai cuong', 3, 'BB', 1),
-(4010601, 'Tieng Anh 1\r\n', 3, '0', 0),
-(4020101, 'nguyen li co ban chu nghia mac le nin', 2, 'BB', 0);
+(4010501, 'Vật lí đại cương', 3, 'BB', 1),
+(4010601, 'Tin đại cương', 3, 'BB', 1),
+(4020101, 'Nguyên lí cơ bản Mac-Lenin', 2, 'BB', 1);
 
 -- --------------------------------------------------------
 
@@ -156,6 +193,8 @@ INSERT INTO `tb_monhoc` (`mamh`, `tenmonhoc`, `sotinchi`, `maloai`, `manganh`) V
 
 CREATE TABLE `tb_nhommonhoc` (
   `id` int(11) NOT NULL,
+  `id_hocki` int(11) NOT NULL,
+  `malop` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `nhommonhoc` int(11) NOT NULL,
   `mamh` int(11) NOT NULL,
   `magiaovien` int(11) NOT NULL,
@@ -166,14 +205,14 @@ CREATE TABLE `tb_nhommonhoc` (
 -- Dumping data for table `tb_nhommonhoc`
 --
 
-INSERT INTO `tb_nhommonhoc` (`id`, `nhommonhoc`, `mamh`, `magiaovien`, `siso`) VALUES
-(1, 1, 4020101, 1221050000, 4),
-(2, 2, 4020101, 1221050001, 90),
-(3, 3, 4020101, 1221050002, 150),
-(4, 1, 4010501, 1221050000, 30),
-(5, 2, 4010501, 1221050001, 60),
-(6, 1, 4010601, 1221050002, 50),
-(7, 2, 4010601, 1221050002, 100);
+INSERT INTO `tb_nhommonhoc` (`id`, `id_hocki`, `malop`, `nhommonhoc`, `mamh`, `magiaovien`, `siso`) VALUES
+(1, 14, 'DCCTKT57', 1, 4020101, 1221050000, 4),
+(2, 14, 'DCCTKT58', 2, 4020101, 1221050001, 90),
+(3, 14, 'DCCTKT59', 3, 4020101, 1221050002, 150),
+(4, 14, 'DCCTKT57', 1, 4010501, 1221050000, 30),
+(5, 14, 'DCCTKT58', 2, 4010501, 1221050001, 60),
+(6, 14, 'DCCTKT57', 1, 4010601, 1221050002, 50),
+(7, 14, 'DCCTKT58', 2, 4010601, 1221050002, 100);
 
 -- --------------------------------------------------------
 
@@ -247,6 +286,12 @@ ALTER TABLE `tb_giaovien`
   ADD PRIMARY KEY (`magiaovien`);
 
 --
+-- Indexes for table `tb_hocki`
+--
+ALTER TABLE `tb_hocki`
+  ADD PRIMARY KEY (`id_hocki`);
+
+--
 -- Indexes for table `tb_khoa`
 --
 ALTER TABLE `tb_khoa`
@@ -289,7 +334,12 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_danhsachsinhvien`
 --
 ALTER TABLE `tb_danhsachsinhvien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+--
+-- AUTO_INCREMENT for table `tb_hocki`
+--
+ALTER TABLE `tb_hocki`
+  MODIFY `id_hocki` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tb_nhommonhoc`
 --

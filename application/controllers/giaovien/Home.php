@@ -54,8 +54,8 @@ class Home extends CI_Controller{
         $this->session->sess_destroy();
         redirect('giaovien/home');
     }
-    public function diemsinhvien($mamonhoc,$nhommonhoc){
-        $check = $this->monhoc_models->getdanhsach($mamonhoc,$nhommonhoc);
+    public function diemsinhvien($mamonhoc,$nhommonhoc,$id_hocki){
+        $check = $this->monhoc_models->getdanhsach($mamonhoc,$nhommonhoc,$id_hocki);
         if($check){
             $data['dssv'] = $check;
         }else{ $data['err'] = "Khong tim thay lop phu hop!"; }

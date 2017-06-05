@@ -15,6 +15,10 @@ include'header.php'
         }
         ?>
         <?php
+        $hocki = $this->home_models->get_info($row->id_hocki,'id_hocki','tb_hocki');
+        if($hocki){
+            foreach($hocki as $hk){}
+        }
         $monhoc = $this->monhoc_models->getinfo($row->mamh);
 
         if($monhoc){
@@ -29,8 +33,10 @@ include'header.php'
             foreach ($tengiaovien as $tgv) {}
         }
         ?>
-        <label for="">Mã môn học:</label>&nbsp;<span> <?php echo $row->mamh?></span><br>
-        <label for="">Nhóm môn học:</label>&nbsp;<span> <?php echo $row->nhommonhoc?></span><br>
+        <label for="">Năm học:</label>&nbsp;<span> <?php echo $hk->nambatdau?> - <?php echo $hk->namketthuc?></span><br>
+        <label for="">Học kì:</label>&nbsp;<span> <?php echo $hk->tenhocki?></span><br>
+        <label for="">Mã học phần:</label>&nbsp;<span> <?php echo $row->mamh?></span><br>
+        <label for="">Nhóm học phần:</label>&nbsp;<span> <?php echo $row->nhommonhoc?></span><br>
         <label for="">Tên học phần:</label>&nbsp;<span><?php echo $value->tenmonhoc?></span><br>
         <label for="">Giáo viên:</label>&nbsp;<span><?php echo $tgv->tengiaovien?></span>
     </div>
@@ -52,7 +58,7 @@ include'header.php'
         $style = array(
             'class' => 'form-group'
         );
-        echo form_open('giaovien/diem/add/'.$row->mamh.'/'.$row->nhommonhoc);
+        echo form_open('giaovien/diem/add/'.$row->mamh.'/'.$row->nhommonhoc.'/'.$row->id_hocki);
         ?>
         <?php if(isset($dssv)){
             $i = 1;
@@ -73,7 +79,11 @@ include'header.php'
                 $tengiaovien = $this->monhoc_models->getgiaovien($gv->magiaovien);
                 if($tengiaovien){
                     foreach ($tengiaovien as $tgv) {}
+
                 }
+                echo form_hidden('diem['.$row->masinhvien.'][hocki]', $hk->tenhocki);
+                echo form_hidden('diem['.$row->masinhvien.'][nambatdau]', $hk->nambatdau);
+                echo form_hidden('diem['.$row->masinhvien.'][namketthuc]', $hk->namketthuc);
                 echo form_hidden('diem['.$row->masinhvien.'][mamonhoc]', $row->mamh);
                 echo form_hidden('diem['.$row->masinhvien.'][nhommonhoc]', $row->nhommonhoc);
                 echo form_hidden('diem['.$row->masinhvien.'][tenmonhoc]',$value->tenmonhoc);
@@ -100,6 +110,7 @@ include'header.php'
                         'type' => 'number',
                         'class' => 'form-control',
                         'min' => '0',
+                        'max' => '10',
                         'name' => 'diem['.$row->masinhvien.'][diemA]',
                         'value' => $row->diemA,
                         );
@@ -112,6 +123,7 @@ include'header.php'
                         'type' => 'number',
                         'class' => 'form-control',
                         'min' => '0',
+                         'max' => '10',
                          'name' => 'diem['.$row->masinhvien.'][diemA_2]',
                         'value' => $row->diemA_2,
                         );
@@ -124,6 +136,7 @@ include'header.php'
                         'type' => 'number',
                         'class' => 'form-control',
                         'min' => '0',
+                         'max' => '10',
                          'name' => 'diem['.$row->masinhvien.'][diemB]',
                         'value' => $row->diemB,
                         );
@@ -136,45 +149,20 @@ include'header.php'
                         'type' => 'number',
                         'class' => 'form-control',
                         'min' => '0',
+                         'max' => '10',
                          'name' => 'diem['.$row->masinhvien.'][diemC]',
                         'value' => $row->diemC,
                         );
                         echo form_input($data);
                         ?>
                     </td>
-                    <td><?php
-                        if($row->diemA_2 >= $row->diemA){
-                            $diemA = $row->diemA_2;
-                        }else $diemA = $row->diemA;
-                        $kq = 0.6*$diemA + 0.3*$row->diemB + 0.1*$row->diemC;
-                        echo $kq;
-                        ?>
-                    </td>
+                    <td><?php echo $row->TK10?></td>
                     <td><?php
                         if($key->tinhtrang == 0){
                             echo "";
                         }
                         ?></td>
-                    <td>
-                    <?php
-                    if($kq<4.0){
-                        echo "F";
-                    }
-                    if($kq>=4.0 && $kq<5.5){
-                        echo "D";
-                    }
-
-                    if($kq>=5.5 && $kq<7.0){
-                        echo "C";
-                    }
-                    if($kq>=7.0 && $kq<8.5){
-                        echo "C";
-                    }
-                    if($kq>=8.5){
-                        echo "A";
-                    }
-                    ?>
-                    </td>
+                    <td><?php echo $row->TKCH?></td>
                 </tr>
                 <?php
                 $i++;
