@@ -20,6 +20,13 @@ class giaovien_models extends CI_Model {
             return false;
         }
     }
+    public function get_bomon($mabomon){
+        $this->db->where('mabomon',$mabomon);
+        $query = $this->db->get('tb_giaovien');
+        if($query->num_rows() > 0){
+            return $query->result();
+        }
+    }
     public function getclass($magiaovien){
         $this->db->where('magiaovien',$magiaovien);
         $class = $this->db->get('tb_nhommonhoc');

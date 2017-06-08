@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2017 at 07:50 AM
+-- Generation Time: Jun 08, 2017 at 12:51 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -49,9 +49,17 @@ INSERT INTO `tb_admin` (`id_admin`, `tendangnhap`, `matkhau`, `ten`) VALUES
 CREATE TABLE `tb_bomon` (
   `mabomon` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `makhoa` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `kihieu` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `tenbomon` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_bomon`
+--
+
+INSERT INTO `tb_bomon` (`mabomon`, `makhoa`, `tenbomon`) VALUES
+('TKT', 'CT', 'Tin kinh tế'),
+('TDC', 'CT', 'Tin địa chất'),
+('CPM', 'CT', 'Công nghệ phần mềm');
 
 -- --------------------------------------------------------
 
@@ -80,7 +88,7 @@ CREATE TABLE `tb_danhsachsinhvien` (
 INSERT INTO `tb_danhsachsinhvien` (`id`, `id_hocki`, `mamh`, `nhommonhoc`, `masinhvien`, `diemA`, `diemA_2`, `diemB`, `diemC`, `TK10`, `TKCH`) VALUES
 (38, 14, 4020101, 1, 1221050140, 9, 0, 10, 10, 9.4, 'A'),
 (50, 14, 4020101, 1, 1221050220, 8, 0, 5, 10, 7.3, 'B'),
-(51, 14, 4020101, 1, 1221050139, 8, 0, 5, 10, 7.3, 'B'),
+(51, 14, 4020101, 1, 1221050139, 7, 0, 5, 8, 6.5, 'C+'),
 (52, 14, 4020101, 1, 1221050420, 10, 0, 5, 10, 8.5, 'A');
 
 -- --------------------------------------------------------
@@ -92,17 +100,18 @@ INSERT INTO `tb_danhsachsinhvien` (`id`, `id_hocki`, `mamh`, `nhommonhoc`, `masi
 CREATE TABLE `tb_giaovien` (
   `magiaovien` int(11) NOT NULL,
   `matkhau` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `tengiaovien` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `tengiaovien` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `mabomon` varchar(10) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tb_giaovien`
 --
 
-INSERT INTO `tb_giaovien` (`magiaovien`, `matkhau`, `tengiaovien`) VALUES
-(1221050000, '0000', 'Trần Ngọc A'),
-(1221050001, '0001', 'Nguyễn Thị Huyền C'),
-(1221050002, '0002', 'Nguyễn Đắc D');
+INSERT INTO `tb_giaovien` (`magiaovien`, `matkhau`, `tengiaovien`, `mabomon`) VALUES
+(1221050000, '0000', 'Trần Ngọc A', 'TKT'),
+(1221050001, '0001', 'Nguyễn Thị Huyền C', 'TKT'),
+(1221050002, '0002', 'Nguyễn Đắc D', 'TKT');
 
 -- --------------------------------------------------------
 
@@ -154,13 +163,33 @@ CREATE TABLE `tb_khoa` (
 --
 
 INSERT INTO `tb_khoa` (`makhoa`, `kihieu`, `tenkhoa`) VALUES
-('CD', '01', 'Cơ điện'),
-('CT', '08 ', 'Công nghệ thông tin'),
-('d', '9', 'b'),
+('CD', '11', 'Cơ điện'),
+('CT', '08', 'Công nghệ thông tin'),
 ('DD', '01', 'Đại học đại cương'),
-('KT', '07', 'Kinh tế và QTKD'),
-('LL', '02', 'Khoa Lí luận chính trị'),
-('MT', '01', 'Môi trường');
+('MT', '09', 'Môi trường');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_lop`
+--
+
+CREATE TABLE `tb_lop` (
+  `mabomon` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `k` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `malop` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `tenlop` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `magiaovien` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_lop`
+--
+
+INSERT INTO `tb_lop` (`mabomon`, `k`, `malop`, `tenlop`, `magiaovien`) VALUES
+('TKT', '57', 'DCCTTKT57', 'Tin kinh te K 57', '1221050001'),
+('TKT', '58', 'DCCTTKT58', 'Tin kinh tế 58', '1221050000'),
+('TKT', '58A', 'DCCTTKT58A', 'Tin kinh tế K58A', '1221050000');
 
 -- --------------------------------------------------------
 

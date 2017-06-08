@@ -34,7 +34,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo base_url()?>daotao">Đào tạo<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="<?php echo base_url()?>daotao/khoa/home">Đào tạo<span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Giáo viên</a></li>
                         <li><a href="<?php echo base_url()?>khoa">Sinh viên</a></li>
                         <li><a href="<?php echo base_url()?>chuyennganh">Môn học</a></li>

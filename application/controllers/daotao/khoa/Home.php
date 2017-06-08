@@ -8,15 +8,16 @@
  */
 class home extends CI_Controller{
     public function index(){
+        $data = array();
         $session_admin = $this->session->userdata('id_admin');
         if(isset($session_admin)){
             $admin = $this->admin_models->infomation('tendangnhap',$session_admin);
+
             $data['khoa'] = $this->khoa_models->get();
             foreach ($admin as $key) {
                 $data['admin'] = $key->ten;
             }
-            // $data['admin'] =
-            $data = array();
+
             $err = $this->session->flashdata('err');
             if(isset($err)){
                 $data['err'] = $err;
@@ -66,6 +67,31 @@ class home extends CI_Controller{
             }else echo 2;
 
         }
+    }
+    public function delete($makhoa){
+        $this->khoa_models->delete($makhoa);
+        redirect('daotao/khoa/home');
+    }
+    public function view($makhoa){
+        $data = array();
+        $session_admin = $this->session->userdata('id_admin');
+        if(isset($session_admin)){
+            $admin = $this->admin_models->infomation('tendangnhap',$session_admin);
+            $data['khoa'] = $this->khoa_models->get();
+            foreach ($admin as $key) {
+                $data['admin'] = $key->ten;
+            }
+            $err = $this->session->flashdata('err');
+            if(isset($err)){
+                $data['err'] = $err;
+            }
+            $view = $this->khoa_models->getinfo($makhoa);
+            if($view){
+                $data['makhoa'] = $makhoa;
+            }
+            $data['khoa'] = $this->khoa_models->get();
+            $this->load->view('daotao/khoa/home',$data);
+        }else redirect('daotao/home/login');
     }
 }
 ?>
