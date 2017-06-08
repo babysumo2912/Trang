@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2017 at 12:51 PM
+-- Generation Time: Jun 08, 2017 at 08:30 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -89,7 +89,14 @@ INSERT INTO `tb_danhsachsinhvien` (`id`, `id_hocki`, `mamh`, `nhommonhoc`, `masi
 (38, 14, 4020101, 1, 1221050140, 9, 0, 10, 10, 9.4, 'A'),
 (50, 14, 4020101, 1, 1221050220, 8, 0, 5, 10, 7.3, 'B'),
 (51, 14, 4020101, 1, 1221050139, 7, 0, 5, 8, 6.5, 'C+'),
-(52, 14, 4020101, 1, 1221050420, 10, 0, 5, 10, 8.5, 'A');
+(52, 14, 4020102, 1, 1221050420, 10, 0, 5, 10, 8.5, 'A'),
+(53, 1, 4020109, 1, 1221050140, 5, 0, 5, 5, 5, 'D+'),
+(54, 2, 4010108, 2, 1221050140, 10, 0, 8, 7, 9.1, 'A'),
+(55, 3, 4010103, 2, 1221050140, 7, 0, 5, 10, 6.7, 'C+'),
+(56, 1, 4020101, 1, 1221050140, 5, 0, 5, 5, 5, 'D+'),
+(57, 1, 4020102, 1, 1221050140, 5, 0, 5, 5, 5, 'D+'),
+(58, 14, 4020101, 1, 1221050420, 10, 0, 5, 10, 8.5, 'A'),
+(59, 1, 4020102, 4, 1221050420, 5, 0, 5, 5, 5, 'D+');
 
 -- --------------------------------------------------------
 
@@ -210,9 +217,13 @@ CREATE TABLE `tb_monhoc` (
 --
 
 INSERT INTO `tb_monhoc` (`mamh`, `tenmonhoc`, `sotinchi`, `maloai`, `manganh`) VALUES
+(4010103, 'Tin dai cuong', 3, 'BB', 1),
+(4010108, 'Lap trinh C++', 2, 'BB', 8),
 (4010501, 'Vật lí đại cương', 3, 'BB', 1),
 (4010601, 'Tin đại cương', 3, 'BB', 1),
-(4020101, 'Nguyên lí cơ bản Mac-Lenin', 2, 'BB', 1);
+(4020101, 'Nguyên lí cơ bản Mac-Lenin', 2, 'BB', 1),
+(4020102, 'Vat li dai cuong\r\n', 3, 'bb', 1),
+(4020109, 'Lap trinh C#', 3, 'BB', 3);
 
 -- --------------------------------------------------------
 
@@ -363,7 +374,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_danhsachsinhvien`
 --
 ALTER TABLE `tb_danhsachsinhvien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT for table `tb_hocki`
 --

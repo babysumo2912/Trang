@@ -26,10 +26,14 @@ class Home extends CI_Controller {
 	}
 	function view($id_tintuc){
         $data = array();
+         $tintucmoi = $this->home_models->get_info('2','danhmuc','tb_tintuc');
+        if($tintucmoi){
+            $data['data_tintuc'] = $tintucmoi;
+        }
         $tintuc = $this->home_models->get_info($id_tintuc,'id_tintuc','tb_tintuc');
         if($tintuc){
             $data['tintuc'] = $tintuc;
-            $this->load->view('view',$data);
+            $this->load->view('layout/view',$data);
         }
     }
 }
