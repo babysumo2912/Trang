@@ -4,16 +4,21 @@ $masinhvien = $this->session->userdata('masinhvien');
 ?>
 <section class="row">
     <div class="max">
-        <div class="text-center" style="max-width: 500px; border: 1px #ccc solid; margin: 0 auto;padding: 10px; margin-bottom: 10px">
+        <div style="max-width: 500px; border: 1px #ccc solid; margin: 0 auto;padding: 10px; margin-bottom: 10px">
             <?php if(isset($sinhvien)){
                 foreach ($sinhvien as $row){
                     ?>
-                    <label for="">Mã sinh viên:</label>&nbsp;<span> <?php echo $row->masinhvien?></span><br>
-                    <label for="">Tên sinh viên:</label>&nbsp;<span> <?php echo $row->tensinhvien?></span><br>
-                    <label for="">Lớp sinh viên:</label>&nbsp;<span> <?php echo $row->malop?></span><br>
+                    <p>Mã sinh viên:<b> <?php echo $row->masinhvien?></b></p>
+                    <p>Tên sinh viên:&nbsp;<b><?php echo $row->tensinhvien?></b></p>
+                    <p>Lớp sinh viên:&nbsp;<b><?php echo $row->malop?></b></p>
+                    <p>Hệ đào tạo:</p>
+                    <p>Lớp: </p>
+                    <p>Chuyên ngành:</p>
+                    <p>Khoa: </p>
                     <?php
                 }
             }?>
+            <hr> 
              <?php 
             $danhsachsinhvien_hk = $this->sinhvien_models->danhsachmonhoc($masinhvien);
              // $danhsachsinhvien_hk = $this->sinhvien_models->danhsachmonhoc_hk($masinhvien,'1');
@@ -59,6 +64,9 @@ $masinhvien = $this->session->userdata('masinhvien');
              Số tín chỉ đạt <b><?php echo $sotinchidat; ?></b><br>
              Điểm trung bình tích lũy (hệ 4): <b><?php echo round($tongdiem/$sotinchidat,2) ?></b><br>
              Điểm trung bình tích lũy (hệ 10): <b><?php echo round($tongdiem10/$sotinchidat,2) ?></b><br>
+        </div>
+        <div class="text-center">
+            <a href="<?php echo base_url() ?>sinhvien/xemdiem/full">Xem tất cả các kì học</a>
         </div>
         <div>
             <?php 

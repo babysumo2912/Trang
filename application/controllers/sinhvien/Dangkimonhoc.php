@@ -7,6 +7,8 @@ class dangkimonhoc extends CI_Controller
 	
 	function index(){
 		$data = array();
+		$hocki = $this->home_models->hocki();
+		foreach ($hocki as $hk) {};
 		$search = $this->session->flashdata('in');
 		$mamonhoc = $this->session->flashdata('mamonhoc');
 		$err = $this->session->flashdata('err');
@@ -26,7 +28,7 @@ class dangkimonhoc extends CI_Controller
 		        $data['err'] = $err;
             }
 			$data['sinhvien'] = $this->sinhvien_models->infomation($session_sinhvien);
-			$danhsachmonhoc_sinhvien = $this->sinhvien_models->danhsachmonhoc($session_sinhvien);
+			$danhsachmonhoc_sinhvien = $this->sinhvien_models->danhsachmonhoc_hk($session_sinhvien,$hk->id_hocki);
 			if($danhsachmonhoc_sinhvien){
 			    $data['danhsachmonhoc_sinhvien'] = $danhsachmonhoc_sinhvien;
             }
@@ -40,11 +42,17 @@ class dangkimonhoc extends CI_Controller
 	}
 	function search(){
 		$mamonhoc = $this->input->post('mamonhoc');
+		$hocki = $this->home_models->hocki();
+        foreach ($hocki as $hk) {};
 		if(isset($mamonhoc)){
-			$search = $this->monhoc_models->search($mamonhoc);
+			$search = $this->monhoc_models->search($mamonhoc,$hk->id_hocki);
 			if($search){
 				$this->session->set_flashdata('mamonhoc',$mamonhoc);
 				$this->session->set_flashdata('in',$search);
+				redirect('sinhvien/dangkimonhoc');
+			}else{
+				$err = "Khong tim thay mon hoc";
+				$this->session->set_flashdata('err',$err);
 				redirect('sinhvien/dangkimonhoc');
 			}
 		}

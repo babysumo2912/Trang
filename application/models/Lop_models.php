@@ -27,6 +27,13 @@ class lop_models extends CI_model{
         $this->db->delete('tb_lop');
         return true;
     }
+    public function get_dsachsv($malop){
+        $this->db->where('malop',$malop);
+        $query = $this->db->get('tb_sinhvien');
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else return false;
+    }
 }
 
 

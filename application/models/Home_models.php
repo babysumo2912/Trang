@@ -15,5 +15,14 @@ class home_models extends CI_Model{
             return $get_info->result();
         }
     }
+    function add($data){
+        $this->db->insert('tb_hocki',$data);
+        return true;
+    }
+    function hocki(){
+        $this->db->select_max('id_hocki');
+        $abc = $this->db->get('tb_hocki');
+        return $abc->result();
+    }
 }
 ?>

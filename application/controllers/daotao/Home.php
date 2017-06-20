@@ -72,6 +72,18 @@ class home extends CI_Controller{
 		$this->session->sess_destroy();
 		redirect('daotao/home');
 	}
+	public function add_hocki(){
+		$nambatdau = $this->input->post('nambatdau');
+		$namketthuc = $this->input->post('namketthuc');
+		$hocki = $this->input->post('hocki');
+		$data = array(
+			'tenhocki' => $hocki,
+			'nambatdau' => $nambatdau,
+			'namketthuc'=>$namketthuc,
+			);
+		$this->home_models->add($data);
+		redirect('daotao/home');
+	}
 }
 
 

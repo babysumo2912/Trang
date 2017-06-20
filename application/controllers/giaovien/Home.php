@@ -14,6 +14,10 @@ class Home extends CI_Controller{
             if($class){
                 $data['class'] = $class;
             }
+            $chunhiem = $this->giaovien_models->chunhiem($session_gv);
+            if($chunhiem){
+                $data['chunhiem'] = $chunhiem;
+            }else $data['chunhiem'] = '';
             $this->load->view('giaovien/home',$data);
         }else redirect('giaovien/home/login');
     }

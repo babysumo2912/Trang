@@ -75,6 +75,26 @@ class Lop extends CI_Controller {
         $this->lop_models->delete($malop);
         redirect('daotao/khoa/lop/view/'.$mabomon);
     }
+    public function dsach($malop){
+        $data = array();
+        $session_admin = $this->session->userdata('id_admin');
+        if(isset($session_admin)){
+            $admin = $this->admin_models->infomation('tendangnhap',$session_admin);
+            foreach ($admin as $key) {
+                $data['admin'] = $key->ten;
+            }
+        // $data = array();
+        $tenlop = $this->home_models->get_info($malop,'malop','tb_lop');
+        if($tenlop){
+            $data['tenlop'] = $tenlop;
+        }
+        $data1 = $this->lop_models->get_dsachsv($malop);
+        if($data1){
+            $data['data1'] = $data1;
+        }
+        $this->load->view('daotao/khoa/dsachsv',$data);
+        }
+    }
 }
 
 ?>

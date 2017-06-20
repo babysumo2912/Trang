@@ -28,7 +28,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <i class = "fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand home" href="<?php echo base_url()?>"><i class = "fa fa-home"></i></a>
+                    <a class="navbar-brand home" href="<?php echo base_url()?>daotao"><i class = "fa fa-home"></i></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->

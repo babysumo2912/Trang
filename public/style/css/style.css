@@ -319,3 +319,16 @@ body{
 .menu-left ul li a{
     display: block;
 }
+.abc a{
+    border:1px black solid;
+    /*background: #ccc;*/
+    padding: 50px;
+    color: black;
+    text-decoration: none;
+    margin:60px;
+}
+.abc a:hover{
+    background: black;
+    color: white;
+    text-decoration: none
+}

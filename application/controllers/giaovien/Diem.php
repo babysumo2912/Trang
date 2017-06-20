@@ -181,6 +181,21 @@ class Diem extends CI_Controller{
         //end file excel
         redirect('giaovien/home/diemsinhvien/'.$mamonhoc.'/'.$nhommonhoc.'/'.$id_hocki);
     }
+    function add_drl(){
+        $diem = $this->input->post('diem');
+         $hocki = $this->home_models->hocki();
+        foreach ($hocki as $hk) {};
+        if(isset($diem)){
+            foreach ($diem as $key=>$value) {
+                // echo $value['diemrl'];
+                $data= array(
+                    'diemrl' => $value['diemrl'],
+                );
+                $this->giaovien_models->add_diemrl($hk->id_hocki,$value['masinhvien'],$data);
+            }
+            redirect('giaovien/home');
+        }
+    }
 }
 
 ?>

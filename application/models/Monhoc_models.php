@@ -19,8 +19,9 @@ class monhoc_models extends CI_model
 			return $getinfo->result();
 		}else return false;
 	}
-	function search($mamonhoc){
+	function search($mamonhoc,$hocki){
 		$this->db->where('mamh',$mamonhoc);
+		$this->db->where('id_hocki',$hocki);
 		$search = $this->db->get('tb_nhommonhoc');
 		if($search->num_rows() > 0){
 			return $search->result();
@@ -63,6 +64,7 @@ class monhoc_models extends CI_model
             return true;
         }else return false;
     }
+   
 }
 
 

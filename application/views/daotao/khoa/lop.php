@@ -79,7 +79,7 @@ include'header.php'
                         <?php echo $row->malop?>
                     </td>
                     <td>
-                        <?php echo $row->tenlop?>
+                        <a href="<?php echo base_url() ?>daotao/khoa/lop/dsach/<?php echo $row->malop ?>"><?php echo $row->tenlop?></a>
                     </td>
                     <td>
                         <?php echo "K ".$row->k ?>

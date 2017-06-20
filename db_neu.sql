@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2017 at 08:30 PM
+-- Generation Time: Jun 21, 2017 at 01:07 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -86,17 +86,40 @@ CREATE TABLE `tb_danhsachsinhvien` (
 --
 
 INSERT INTO `tb_danhsachsinhvien` (`id`, `id_hocki`, `mamh`, `nhommonhoc`, `masinhvien`, `diemA`, `diemA_2`, `diemB`, `diemC`, `TK10`, `TKCH`) VALUES
-(38, 14, 4020101, 1, 1221050140, 9, 0, 10, 10, 9.4, 'A'),
-(50, 14, 4020101, 1, 1221050220, 8, 0, 5, 10, 7.3, 'B'),
-(51, 14, 4020101, 1, 1221050139, 7, 0, 5, 8, 6.5, 'C+'),
+(38, 14, 4020101, 1, 1221050140, 5, 6, 5, 5, 5.6, 'C'),
+(50, 14, 4020101, 1, 1221050220, 8, 7, 5, 10, 7.3, 'B'),
+(51, 14, 4020101, 1, 1221050139, 5, 9, 5, 8, 7.7, 'B'),
 (52, 14, 4020102, 1, 1221050420, 10, 0, 5, 10, 8.5, 'A'),
 (53, 1, 4020109, 1, 1221050140, 5, 0, 5, 5, 5, 'D+'),
 (54, 2, 4010108, 2, 1221050140, 10, 0, 8, 7, 9.1, 'A'),
 (55, 3, 4010103, 2, 1221050140, 7, 0, 5, 10, 6.7, 'C+'),
-(56, 1, 4020101, 1, 1221050140, 5, 0, 5, 5, 5, 'D+'),
+(56, 1, 4020101, 1, 1221050140, 5, 6, 5, 5, 5.6, 'C'),
 (57, 1, 4020102, 1, 1221050140, 5, 0, 5, 5, 5, 'D+'),
 (58, 14, 4020101, 1, 1221050420, 10, 0, 5, 10, 8.5, 'A'),
 (59, 1, 4020102, 4, 1221050420, 5, 0, 5, 5, 5, 'D+');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_diemrenluyen`
+--
+
+CREATE TABLE `tb_diemrenluyen` (
+  `id_drl` int(11) NOT NULL,
+  `masinhvien` int(11) NOT NULL,
+  `diemrl` int(11) NOT NULL,
+  `id_hocki` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_diemrenluyen`
+--
+
+INSERT INTO `tb_diemrenluyen` (`id_drl`, `masinhvien`, `diemrl`, `id_hocki`) VALUES
+(1, 1221050140, 60, 14),
+(2, 1221050220, 70, 14),
+(3, 1221050139, 80, 14),
+(4, 1221050420, 75, 14);
 
 -- --------------------------------------------------------
 
@@ -116,9 +139,10 @@ CREATE TABLE `tb_giaovien` (
 --
 
 INSERT INTO `tb_giaovien` (`magiaovien`, `matkhau`, `tengiaovien`, `mabomon`) VALUES
-(1221050000, '0000', 'Trần Ngọc A', 'TKT'),
+(1221050000, '0000', 'Trần Ngọc A1', 'TKT'),
 (1221050001, '0001', 'Nguyễn Thị Huyền C', 'TKT'),
-(1221050002, '0002', 'Nguyễn Đắc D', 'TKT');
+(1221050002, '1221050002', 'Nguyen Dac H', 'TDC'),
+(1221050010, '1221050010', 'Lai Lan A\\', 'TKT');
 
 -- --------------------------------------------------------
 
@@ -194,9 +218,7 @@ CREATE TABLE `tb_lop` (
 --
 
 INSERT INTO `tb_lop` (`mabomon`, `k`, `malop`, `tenlop`, `magiaovien`) VALUES
-('TKT', '57', 'DCCTTKT57', 'Tin kinh te K 57', '1221050001'),
-('TKT', '58', 'DCCTTKT58', 'Tin kinh tế 58', '1221050000'),
-('TKT', '58A', 'DCCTTKT58A', 'Tin kinh tế K58A', '1221050000');
+('TKT', '57', 'DCCTTKT57', 'Tin kinh tế K57', '1221050000');
 
 -- --------------------------------------------------------
 
@@ -273,10 +295,10 @@ CREATE TABLE `tb_sinhvien` (
 --
 
 INSERT INTO `tb_sinhvien` (`masinhvien`, `matkhau`, `tensinhvien`, `malop`, `tinhtrang`) VALUES
-('1221050139', 'huy', 'Nguyễn Đắc Huy', 'DCCTKT57', 0),
-('1221050140', 'ngocduc', 'Ngocduc', 'DCCTKT57', 0),
-('1221050220', 'hien', 'Vũ Đức Hiển', 'DCCTKT57', 0),
-('1221050420', 'trang', 'Huyền Trang', 'DCCTKT57', 0);
+('1221050139', 'huy', 'Nguyễn Đắc Huy', 'DCCTTKT57', 0),
+('1221050140', 'ngocduc', 'Ngocduc', 'DCCTTKT57', 0),
+('1221050220', 'hien', 'Vũ Đức Hiển', 'DCCTTKT57', 0),
+('1221050420', 'trang', 'Huyền Trang', 'DCCTTKT57', 0);
 
 -- --------------------------------------------------------
 
@@ -318,6 +340,12 @@ ALTER TABLE `tb_admin`
 --
 ALTER TABLE `tb_danhsachsinhvien`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_diemrenluyen`
+--
+ALTER TABLE `tb_diemrenluyen`
+  ADD PRIMARY KEY (`id_drl`);
 
 --
 -- Indexes for table `tb_giaovien`
@@ -376,10 +404,15 @@ ALTER TABLE `tb_admin`
 ALTER TABLE `tb_danhsachsinhvien`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
+-- AUTO_INCREMENT for table `tb_diemrenluyen`
+--
+ALTER TABLE `tb_diemrenluyen`
+  MODIFY `id_drl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `tb_hocki`
 --
 ALTER TABLE `tb_hocki`
-  MODIFY `id_hocki` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_hocki` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `tb_nhommonhoc`
 --
