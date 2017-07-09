@@ -171,7 +171,7 @@ include'header.php'
     </table>
     <div class="text-center">
         <input type="submit" class="btn btn-success" value="Save">
-        <a href="<?php echo base_url()?>data_diem.xlsx" class="btn btn-info"><i class="fa fa-print"></i>&nbsp;In ra file excel</a>
+        <a href="<?php echo base_url()?>data.xlsx" class="btn btn-info"><i class="fa fa-print"></i>&nbsp;In ra file excel</a>
     </div>
     <?php echo form_close();?>
 </section>

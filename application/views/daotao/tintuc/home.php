@@ -32,6 +32,10 @@ include'header.php';
                 <select name="catalog" id="" class="form-control">
                     <option value="1">Thông báo</option>
                     <option value="2">Bản tin</option>
+                    <option value="3">Chương trình đào tạo</option>
+                    <option value="4">Humg media</option>
+
+
                 </select>
             </div>
             <div class="form-group col-md-6">

@@ -1,4 +1,4 @@
-<?php
+<?php  
 class Lop extends CI_Controller {
     public function view($mabomon){
         $data = array();
@@ -92,6 +92,7 @@ class Lop extends CI_Controller {
         if($data1){
             $data['data1'] = $data1;
         }
+        $data['malop'] = $malop;
         $this->load->view('daotao/khoa/dsachsv',$data);
         }
     }

@@ -3,7 +3,7 @@ class Diem extends CI_Controller{
     public function add($mamonhoc,$nhommonhoc,$id_hocki){
         $add_diem = $this->input->post('diem');
         if(isset($add_diem)){
-//            var_dump($add_diem);die();
+           // var_dump($add_diem);die();
             foreach ($add_diem as $row => $item){
                 $masinhvien = $item['masinhvien'];
                 $diemA = $item['diemA'];
@@ -51,7 +51,7 @@ class Diem extends CI_Controller{
 //                var_dump($update);
     //                echo $mamonhoc;
     //                echo $nhommonhoc;
-                $query = $this->giaovien_models->add_diem($mamonhoc,$nhommonhoc,$update);
+                $query = $this->giaovien_models->add_diem($mamonhoc,$nhommonhoc,$id_hocki,$update);
             }
         }else echo 1;
         // in file excel
@@ -74,12 +74,17 @@ class Diem extends CI_Controller{
             $objPHPExcel = new PHPExcel();
 
             $objPHPExcel->setActiveSheetIndex(0)
-                ->setCellValue('A1', 'Năm học')
-                ->setCellValue('A2', 'Học kì')
-                ->setCellValue('A3', 'Mã học phần')
-                ->setCellValue('A4', 'Nhóm học phần')
-                ->setCellValue('A5', ' Tên học phần')
-                ->setCellValue('A6', ' Tên giáo viên')
+                ->setCellValue('A1', 'Trường')
+                ->setCellValue('B1', 'Đại học Mỏ Địa Chất - Hà Nội')
+                ->setCellValue('D1', 'Cộng hòa xã hội chủ nghĩa Việt Nam')
+                ->setCellValue('D2', 'Độc lập - Tự do - Hạnh phúc')
+                ->setCellValue('C3', 'Bảng ghi điểm học phần')
+                ->setCellValue('C4', 'Học kì')
+                ->setCellValue('E4', 'Năm học')
+                ->setCellValue('A5', 'Tên môn học')
+                ->setCellValue('A6', 'Tên giảng viên')
+                ->setCellValue('E5', ' Mã môn học')
+                ->setCellValue('E6', 'Nhóm môn học')
                 ->setCellValue('A8', 'STT')
                 ->setCellValue('B8', 'Mã sinh viên')
                 ->setCellValue('C8', 'Tên sinh viên')
@@ -125,10 +130,10 @@ class Diem extends CI_Controller{
                     $row['tkch'] =  "A";
                 }
                 $objPHPExcel->setActiveSheetIndex(0)
-                    ->setCellValue('B1', $row['nambatdau'].'-'.$row['namketthuc'])
-                    ->setCellValue('B2', $row['hocki'])
-                    ->setCellValue('B3', $row['mamonhoc'])
-                    ->setCellValue('B4', $row['nhommonhoc'])
+                    ->setCellValue('F4', $row['nambatdau'].'-'.$row['namketthuc'])
+                    ->setCellValue('D4', $row['hocki'])
+                    ->setCellValue('F5', $row['mamonhoc'])
+                    ->setCellValue('F6', $row['nhommonhoc'])
                     ->setCellValue('B5', $row['tenmonhoc'])
                     ->setCellValue('B6', $row['tengiaovien'])
                     ->setCellValue('A'.$i, $i-8)
@@ -144,7 +149,7 @@ class Diem extends CI_Controller{
                 $i++;
             }
             $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-            $full_path = 'data_diem.xlsx';//duong dan file
+            $full_path = 'data.xlsx';//duong dan file
             $objWriter->save($full_path);
 //        $lists = array(
 //            array(

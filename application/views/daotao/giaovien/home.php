@@ -1,5 +1,5 @@
-<?php 
-include'header.php';
+<?php     
+include'header.php'; 
  ?>
  <section class="row">
  	<div class="max">
@@ -15,44 +15,45 @@ include'header.php';
 			    <?php 
 			    if(isset($err)){
 			    	echo $err;
-			    }
+			    } 
 
 			     ?>
 				<?php echo form_close() ?>
-			</div>
+			</div> 
 			<?php 
 			if(isset($search)){
 				?>
 				<table class="table table-bordered ">
-					<tr>
+					<tr style="font-family: Times; font-size: 17; font-weight: bold; text-align: center;">
 						<td>STT</td>
 						<td>Mã giáo viên</td>
 						<td>Tên giáo viên</td>
+						<td>Mật khẩu</td>
 						<td>Bộ môn</td>
-						<td>Khoa</td>
-						<td></td>
-						<td></td>
-					</tr>
+						<th colspan="2">Thao tác</th>
+						
+					</tr> 
 				
 				<?php
 				$i = 0;
-				foreach ($search as $key) {
+				foreach ($search as $key) 
+				{
 					$i++;
-					$bomon = $this->home_models->get_info($key->mabomon,'mabomon','tb_bomon');
-					if($bomon){
-						foreach ($bomon as $bm) {}
+					$nganh = $this->home_models->get_info($key->manganh,'manganh','tb_nganh');
+					if($nganh){
+						foreach ($nganh as $ng) {}
 					}
-					$khoa = $this->home_models->get_info($bm->makhoa,'makhoa','tb_khoa');
+					$khoa = $this->home_models->get_info($ng->makhoa,'makhoa','tb_khoa');
 					if($khoa){
 						foreach ($khoa as $kh) {}
-					}
+					}  
 				?>
-				<tr>
+				<tr style="font-family: Times; font-size: 17">
 					<td><?php echo $i ?></td>
 					<td><?php echo $key->magiaovien ?></td>
 					<td><?php echo $key->tengiaovien ?></td>
-					<td><?php echo $bm->tenbomon ?></td>
-					<td><?php echo $kh->tenkhoa ?></td>
+					<td><?php echo $key->matkhau ?></td>
+					<td><?php echo $ng->tennganh ?></td>
 					<td>
 						<a href="<?php echo base_url() ?>daotao/giaovien/home/view/<?php echo $key->magiaovien ?>"><i class="fa fa-search"></i></a>
 					</td>
@@ -62,30 +63,71 @@ include'header.php';
 				</tr>
 				<?php
 				}
-
-			}
+				?>
+			</table>
+				<?php
+			}else{
 
 			 ?>
-			 </table>
+			 <div  style="height: 500px; overflow-x: hidden;">
+			 <?php 
+			 if(isset($gv_full))
+			 {
+			 	?>
+			 	<table class="table table-bordered">
+			 		<tr style="font-family: Times; font-size: 17; font-weight: bold; text-align: center;">
+			 			<td>STT</td>
+			 			<td>Mã giáo viên</td>
+			 			<td>Tên giáo viên</td>
+			 			<td>Mật khẩu</td>
+			 			<td>Bộ môn</td>
+			 			<td>Thao tác</td>
+			 		</tr>
+			 		<?php 
+			 		$i = 0;
+			 		foreach ($gv_full as $key) {
+			 			$i++;
+			 			?>
+			 			<tr style="font-family: Times; font-size: 17">
+			 				<td><?php echo $i ?></td>
+			 				<td><?php echo $key->magiaovien ?></td>
+			 				<td><a href="<?php echo base_url() ?>daotao/giaovien/home/view/<?php echo $key->magiaovien ?>"><?php echo $key->tengiaovien ?></a></td>
+			 				<td><?php echo $key->matkhau ?></td>
+			 				<td style="text-align: center;"><?php echo $key->manganh ?></td>
+			 				<td>
+			 					<a href="<?php echo base_url() ?>daotao/giaovien/home/delete/<?php echo $key->magiaovien ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa giáo viên <?php echo $key->tengiaovien ?> ?')"><i class="fa fa-remove" style="padding-left: 20px;"></i></a>
+			 				</td>
+			 			</tr>
+			 			<?php
+			 		}
+
+			 		 ?>
+			 	</table>
+			 	<?php
+			 }
+			  ?> 
+			 </div>
+			 <?php } ?>
 		</div>
 		<div class="col-md-1"></div>
-		<?php if(isset($giaovien)){
+		<?php 
+		if(isset($giaovien))
+		{
 			foreach ($giaovien as $key){}
-				$bomon1 = $this->home_models->get_info($key->mabomon,'mabomon','tb_bomon');
-					if($bomon1){
-						foreach ($bomon1 as $bm1) {}
-					}
-				$khoa1 = $this->home_models->get_info($bm1->makhoa,'makhoa','tb_khoa');
-				foreach ($khoa1 as $kh1) {
-					
-				}
-				?>
+				$nganh1 = $this->home_models->get_info($key->manganh,'manganh','tb_nganh');
+					if($nganh1)
+					 {
+						foreach ($nganh1 as $ng1) {}
+					 }
+				$khoa1 = $this->home_models->get_info($ng1->makhoa,'makhoa','tb_khoa');
+				foreach ($khoa1 as $kh1) {} 
+		?>
 		<div class="col-md-4">
 			<?php 
 			echo form_open('daotao/giaovien/home/sua/'.$key->magiaovien);
 			 ?>
 			<div class="text-center">
-				<h2>Cập nhâp giáo viên</h2>
+				<h2 style="font-family: Times; font-size:20;font-weight: bold;">CẬP NHẬT THÔNG TIN </h2>
 				<hr>
 				<?php 
 				if(isset($add)){
@@ -100,6 +142,10 @@ include'header.php';
 			<div class="form-group">
 				<p>Tên giáo viên: </p>
 				<input type="text" name="tengiaovien" value="<?php echo $key->tengiaovien?>" required class="form-control">
+			</div>
+			<div class="form-group">
+				<p>Mật khẩu: </p>
+				<input type="text" name="matkhau" value="<?php echo $key->matkhau?>" required class="form-control">
 			</div>
 			<div class="form-group">
 				<p>Chọn khoa: <b><?php echo $kh1->tenkhoa ?></b></p>
@@ -118,9 +164,9 @@ include'header.php';
 				</select>
 			</div>
 			<div class="form-group">
-				<p>Chọn chuyên ngành: <b><?php echo $bm1->tenbomon ?></b></p>
-				<select class="form-control" disabled="" id="chuyennganh" name="mabomon">
-					<option value="0">Chuyên ngành</option>
+				<p>Chọn bộ môn: <b><?php echo $ng1->tennganh ?></b></p>
+				<select class="form-control" disabled="" id="chuyennganh" name="manganh">
+					<option value="0">Bộ môn</option>
 				</select>
 			</div>
 			<!-- <div class="form-group">
@@ -135,13 +181,14 @@ include'header.php';
 			 <?php echo form_close(); ?>
 		</div>
 			<?php
-			}else{ ?>
+		}
+		else{ ?>
 		<div class="col-md-4">
 			<?php 
 			echo form_open('daotao/giaovien/home/add');
 			 ?>
 			<div class="text-center">
-				<h2>Thêm mới giáo viên</h2>
+				<h2 style="font-family: Times; font-size:20; font-weight: bold;">THÊM MỚI GIÁO VIÊN</h2>
 				<hr>
 				<?php 
 				if(isset($err_add)){
@@ -161,6 +208,10 @@ include'header.php';
 				<input type="text" name="tengiaovien" required class="form-control">
 			</div>
 			<div class="form-group">
+				<p>Mật khẩu: </p>
+				<input type="text" name="matkhau" required class="form-control">
+			</div>
+			<div class="form-group">
 				<p>Chọn khoa:</p>
 				<select class="form-control" id="khoa" name="makhoa">
 					<option value="0">Chọn khoa</option>
@@ -177,17 +228,11 @@ include'header.php';
 				</select>
 			</div>
 			<div class="form-group">
-				<p>Chọn chuyên ngành:</p>
-				<select class="form-control" disabled="" id="chuyennganh" name="mabomon">
-					<option value="0">Chuyên ngành</option>
+				<p>Chọn bộ môn:</p>
+				<select class="form-control" disabled="" id="chuyennganh" name="manganh">
+					<option value="0">Bộ môn</option>
 				</select>
 			</div>
-			<!-- <div class="form-group">
-				<p>Chủ nhiệm lớp:</p>
-				<select class="form-control" disabled="" id="lop">
-					<option value="0">Lớp</option>
-				</select>
-			</div> -->
 			<div class="text-center">
 				<button type="submit" class="btn btn-primary">Thêm</button>
 			</div>
@@ -196,7 +241,7 @@ include'header.php';
 		<?php } ?>
  	</div>
  </section>
- <script type="text/javascript">
+ <script type="text/javascript"> //chon cbb 
         $(document).ready(function(){
            $('#khoa').on('change', function(){
                 var makhoa = $(this).val();
@@ -209,7 +254,7 @@ include'header.php';
                     $('#chuyennganh').prop('disabled', false);
                     // alert(makhoa);
                     $.ajax({
-                        url:"<?php echo base_url() ?>daotao/giaovien/home/list_chuyennganh",
+                        url:"<?php echo base_url() ?>daotao/giaovien/home/list_bomon",
                         type: "POST",
                         data: {'makhoa' : makhoa},
                         dataType: 'json',

@@ -1,4 +1,4 @@
-<?php include 'layout/header.php' ?>
+<?php include 'layout/header.php' ?> 
 <?php if(isset($tintuc)){
     foreach ($tintuc as $row){}
 }?>

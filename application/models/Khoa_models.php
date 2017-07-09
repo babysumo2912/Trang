@@ -59,6 +59,16 @@ class khoa_models extends CI_Model{
             }else return 2 ;
         }else return 1;
     }
+    public function get_bomon($makhoa){
+        $this->db->where('makhoa',$makhoa);
+        $khoa = $this->db->get('tb_khoa');
+        if($khoa->num_rows() > 0){
+            $this->db->where('makhoa',$makhoa);
+            $bomon = $this->db->get('tb_nganh');
+            if($bomon->num_rows() > 0){
+                return $bomon->result();
+            }else return 2 ;
+        }else return 1;}
     public function get_khoa($mabomon){
         $this->db->where('mabomon',$mabomon);
         $query = $this->db->get('tb_bomon');
@@ -67,6 +77,4 @@ class khoa_models extends CI_Model{
         }
     }
 }
-
-
  ?>

@@ -1,3 +1,4 @@
+
 <?php
 class chuyennganh extends CI_controller{
     public function view($makhoa){
@@ -14,7 +15,7 @@ class chuyennganh extends CI_controller{
                 case 2:
                     $err_nodata = "Khoa của bạn vừa chọn không có chuyên ngành nào! Hãy thêm chuyên ngành mới vào CSDL";
 //                    $this->load->view('daotao/khoa/chuyennganh',$data);
-                    break;
+                    break; 
                 default:
                     $data['chuyennganh'] = $chuyennganh;
             }
@@ -30,6 +31,13 @@ class chuyennganh extends CI_controller{
             foreach ($khoa as $item){};
             $data['khoa'] = $item->tenkhoa;
             $data['makhoa'] = $makhoa;
+
+            $bomon =  $this->bomon_models->get_bomon($makhoa);
+            $data['bomon'] = $bomon;
+            // foreach ($bomon as $item1){};
+            // $data['nganh'] = $item1->tennganh;
+            // $data['makhoa'] = $makhoa;
+
             $this->load->view('daotao/khoa/chuyennganh',$data);
         }else redirect('daotao/home/login');
     }
@@ -44,7 +52,7 @@ class chuyennganh extends CI_controller{
             );
             $check_add_khoa = $this->chuyennganh_models->add($add_khoa);
             if($check_add_khoa == 0){
-                $err = "Mã bộ môn đã tồn tại! Vui lòng nhập mã chuyên ngành khác!";
+                $err = "Mã chuyên ngành đã tồn tại! Vui lòng nhập mã khác!";
                 $this->session->set_flashdata('err',$err);
                 redirect('daotao/khoa/chuyennganh/view/'.$makhoa);
             }else{
@@ -89,9 +97,39 @@ class chuyennganh extends CI_controller{
                 $data['mabomon'] = $mabomon;
             }
             $data['chuyennganh'] = $this->khoa_models->get_chuyennganh($makhoa);
+            $bomon =  $this->bomon_models->get_bomon($makhoa);
+            $data['bomon'] = $bomon;
+            $this->load->view('daotao/khoa/chuyennganh',$data);
+        }else redirect('daotao/home/login');
+    }
+    public function view_bomon($mabomon,$makhoa){
+        $data = array();
+        $session_admin = $this->session->userdata('id_admin');
+        if(isset($session_admin)){
+            $admin = $this->admin_models->infomation('tendangnhap',$session_admin);
+            $khoa = $this->khoa_models->getinfo($makhoa);
+            foreach ($khoa as $kh){};
+            $data['khoa'] = $kh->tenkhoa;
+            $data['makhoa'] = $makhoa;
+            foreach ($admin as $key) {
+                $data['admin'] = $key->ten;
+            }
+
+            // $data['admin'] =
+            $err = $this->session->flashdata('err');
+            if(isset($err)){
+                $data['err'] = $err;
+            }
+            $view = $this->bomon_models->getinfo('manganh',$mabomon);
+            if($view){
+                $data['manganh'] = $mabomon;
+            }
+            $data['bomon'] = $this->khoa_models->get_bomon($makhoa);
+            $chuyennganh =  $this->chuyennganh_models->get_chuyennganh($makhoa);
+            $data['chuyennganh'] = $chuyennganh;
             $this->load->view('daotao/khoa/chuyennganh',$data);
         }else redirect('daotao/home/login');
     }
 }
-
+ 
 ?>

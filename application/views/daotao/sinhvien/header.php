@@ -2,10 +2,6 @@
 <head>
     <title>Phòng Đào Tạo - Trường Đại Học Mỏ Địa Chất</title>
     <meta charset = "utf-8">
-    <meta property = "og:title" content = "Xuất khẩu lao động Nhật Bản 2017 | Không phí môi giới">
-    <meta property = "og:url" content = "<?php echo base_url()?>">
-    <meta property = "og:description" content = "Công ty Xuất khẩu lao động Nhật Bản duy nhất nói không môi giới, tư vấn chính xác tổng phí, cam kết lương và xuất cảnh đúng hợp đồng, xkld Nhật Bản 2017">
-    <meta name="keywords" content="xuat khau lao dong nhat ban; lao dong nhat ban xuat khau lao dong; xuất khẩu lao động nhật bản; xkld nhat; xkld 2017; xuat khau lao dong nhat ban 2016">
     <meta peoperty = "og:img" content = "<?php echo base_url()?>public/img/style/logottc.png">
     <link rel="icon" href="<?php echo base_url()?>public/img/style/favicon.png">
     <link rel="stylesheet" href="<?php echo base_url()?>public/style/css/style.css">
@@ -34,12 +30,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo base_url()?>daotao/khoa/home">Đào tạo<span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Giáo viên</a></li>
-                        <li><a href="<?php echo base_url()?>khoa">Sinh viên</a></li>
-                        <li><a href="<?php echo base_url()?>chuyennganh">Môn học</a></li>
-                        <li><a href="#">Quản lí điểm</a></li>
-                        <li><a href="#">Tin tức</a></li>
+                        <li class="active"><a href="<?php echo base_url()?>daotao/khoa/home">ĐÀO TẠO<span class="sr-only">(current)</span></a></li>
+                        <li><a href="<?php echo base_url() ?>daotao/giaovien/home">GIÁO VIÊN</a></li>
+                        <li><a href="<?php echo base_url()?>daotao/sinhvien/home">SINH VIÊN</a></li>
+                        <li><a href="<?php echo base_url()?>daotao/monhoc/home">MÔN HỌC</a></li>
+                        <li><a href="<?php echo base_url() ?>daotao/tintuc/baivietmoi">TIN TỨC</a></li>
                     </ul>
                     <!-- <form class="navbar-form navbar-left">
                         <div class="form-group">

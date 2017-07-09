@@ -5,7 +5,7 @@ $masinhvien = $this->session->userdata('masinhvien');
 include'header.php';
  ?>
  <section class="row">
- 	<div class="max">
+ 	<div class="max"> 
  		<?php 
  			$style = array(
  				'class' => 'form-group col-md-5 col-sm-6 col-xs-12'
@@ -15,9 +15,9 @@ include'header.php';
 		<!-- <fieldset> -->
 			<!-- <legend>Tìm kiếm môn học</legend> -->
 			<div class="form-group">
- 				<table>
+ 				<table style="font-family: times;font-size: 18;">
  					<tr>
- 						<td>Tìm kiếm theo mã:&nbsp;</td>
+ 						<td>Tìm kiếm theo mã môn học:&nbsp;</td>
  						<td>
  							<input type="text" name="mamonhoc" class="form-control" value="<?php if(isset($mamonhoc)){echo $mamonhoc;} ?>" required>
  						</td>
@@ -40,8 +40,8 @@ include'header.php';
  		 <div class="col-md-12 col-sm-12 col-xs-12">
 	 		 <!-- <fieldset> -->
  		 	<!-- <legend>Danh sách nhóm môn học</legend> -->
- 		 	<table class="table table-hover">
- 		 		<tr>
+ 		 	<table class="table table-hover" style="font-family: times; font-size: 18; ">
+ 		 		<tr style="font-weight: bold;">
  		 			<td></td>
  		 			<td>Mã môn học</td>
  		 			<td>Tên môn học</td>
@@ -132,8 +132,8 @@ include'header.php';
  <section class="row">
  	<div class="max">
  		<table class="table table-hover table-bordered">
- 		<caption>Danh sách môn học đã chọn</caption>
-			<tr>
+ 		<caption style="font-family: Times; font-size: 18">Danh sách môn học đã chọn</caption>
+			<tr style="font-family: Times; font-size: 18; font-weight: bold;">
 				<td>STT</td>
 				<td>Mã môn học</td>
 				<td>Tên môn học</td>

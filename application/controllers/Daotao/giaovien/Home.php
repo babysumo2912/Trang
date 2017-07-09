@@ -1,6 +1,6 @@
-<?php 
-/**
-* 
+<?php   
+/** 
+*  
 */
 class home extends CI_Controller
 {
@@ -19,10 +19,10 @@ class home extends CI_Controller
             	$data['err'] = $err;
             }
             $search = $this->session->flashdata('check');
-            if(isset($search)){
+            if(isset($search)){ 
             	$data['search'] = $search;
             }
-            $data['khoa'] = $this->khoa_models->get();
+            $data['khoa'] = $this->khoa_models->get(); 
             $err_add = $this->session->flashdata('err_add');
             $add = $this->session->flashdata('add');
             if(isset($err_add)){
@@ -34,6 +34,10 @@ class home extends CI_Controller
             }
             if(isset($add)){
             	$data['add'] = $add;
+         	}
+         	$giaovien_full = $this->giaovien_models->getall();
+         	if($giaovien_full){
+         		$data['gv_full'] = $giaovien_full;
          	}
         	$this->load->view('daotao/giaovien/home',$data);    
         }else redirect('daotao/home/login');
@@ -65,6 +69,21 @@ class home extends CI_Controller
 			echo json_encode($pro_select_box);
 		}
 	}
+
+	function list_bomon(){
+		$makhoa = $this->input->post('makhoa');
+		$chuyennganh = $this->home_models->get_info($makhoa,'makhoa','tb_nganh');
+		if(count($chuyennganh)>0)
+		{
+			$pro_select_box = '';
+			$pro_select_box .= '<option value="">Chọn bộ môn </option>';
+			foreach ($chuyennganh as $province) {
+				$pro_select_box .='<option value="'.$province->manganh.'">'.$province->tennganh.'</option>';
+			}
+			echo json_encode($pro_select_box);
+		}
+	}
+
 	function list_lop(){
 		$mabomon = $this->input->post('mabomon');
 		$lop = $this->home_models->get_info($mabomon,'mabomon','tb_lop');
@@ -81,13 +100,14 @@ class home extends CI_Controller
 	function add(){
 		$magiaovien = $this->input->post('magiaovien');
 		$tengiaovien = $this->input->post('tengiaovien');
-		$mabomon = $this->input->post('mabomon');
-		if(isset($magiaovien)&&isset($tengiaovien)&&isset($mabomon)){
+		$mabomon = $this->input->post('manganh');
+		$matkhau= $this ->input->post('matkhau');
+		if(isset($magiaovien)&&isset($tengiaovien)&&isset($mabomon)&&isset($matkhau)){
 			$data_add = array(
 				'magiaovien'=>$magiaovien,
 				'tengiaovien'=>$tengiaovien,
-				'mabomon'=>$mabomon,
-				'matkhau'=>$magiaovien,
+				'manganh'=>$mabomon,
+				'matkhau'=>$matkhau,
 			);
 			$add = $this->giaovien_models->add($data_add);
 			if($add == false){
@@ -109,9 +129,10 @@ class home extends CI_Controller
             foreach ($admin as $key) {
                 $data['admin'] = $key->ten;
             }
-            $err = $this->session->flashdata('err');
+            $err = $this->session->flashdata('err_add');
             if(isset($err)){
-            	$data['err'] = $err;
+            	$err_add = "Vui lòng điền đầy đủ thông tin";
+				$this->session->set_flashdata('err_add',$err_add);
             }
             $giaovien = $this->giaovien_models->infomation($magiaovien);
             if($giaovien){
@@ -123,16 +144,23 @@ class home extends CI_Controller
 	function sua($magiaovien){
 		// $magiaovien = $this->input->post('magiaovien');
 		$tengiaovien = $this->input->post('tengiaovien');
-		$mabomon = $this->input->post('mabomon');
-		if(isset($magiaovien)&&isset($tengiaovien)&&isset($mabomon)){
+		$mabomon = $this->input->post('manganh');
+		$matkhau= $this->input->post('matkhau');
+		if(isset($tengiaovien)&&isset($mabomon)){ 
 			$data_add = array(
 				'tengiaovien'=>$tengiaovien,
-				'mabomon'=>$mabomon,
+				'manganh'=>$mabomon,
+				'matkhau'=>$matkhau,
 			);
 			$add = $this->giaovien_models->sua($magiaovien,$data_add);
 			redirect('daotao/giaovien/home/view/'.$magiaovien);
 			
-		}else redirect('daotao/giaovien/home');
+		}else{
+			$err_add = "Vui lòng điền đầy đủ thông tin";
+			$this->session->set_flashdata('err_add',$err_add);
+			redirect('daotao/giaovien/home/view/'.$magiaovien);
+			 
+		}
 	}
 	function delete($magiaovien){
 		$data = array();

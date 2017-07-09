@@ -1,5 +1,5 @@
 <?php 
-/**
+/** 
 * 
 */
 class dangkimonhoc extends CI_Controller
@@ -58,7 +58,10 @@ class dangkimonhoc extends CI_Controller
 		}
 	}
 	function add($masinhvien,$nhommonhoc,$mamh){
+		$hocki = $this->home_models->hocki();
+		foreach ($hocki as $hk) {};
 	    $get_siso = $this->monhoc_models->get_allinfo($mamh,$nhommonhoc);
+
 	    if($get_siso){
 	        foreach ($get_siso as $row){};
         }
@@ -72,6 +75,7 @@ class dangkimonhoc extends CI_Controller
             redirect('sinhvien/dangkimonhoc');
         }
 		$data_add = array(
+			'id_hocki' => $hk->id_hocki,
 			'mamh' => $mamh,
 			'nhommonhoc' => $nhommonhoc,
 			'masinhvien' => $masinhvien,

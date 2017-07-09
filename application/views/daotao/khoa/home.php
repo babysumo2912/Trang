@@ -19,7 +19,7 @@ include 'header.php';
 <!--     </div>-->
 <!--     <div class="col-xs-9">-->
      <div class="text-center">
-         <h4>Danh sách khoa, mã số khoa</h4>
+         <h3><b>DANH SÁCH CÁC KHOA</b></h3>
      </div>
      <?php
      $style = array(
@@ -62,7 +62,7 @@ include 'header.php';
             foreach ($khoa as $row){
                 echo form_open('daotao/khoa/home/update/'.$row->makhoa)
         ?>
-            <tr style="text-align: center">
+            <tr>
                 <td><?php echo $i;?></td>
                 <td>
                     <?php

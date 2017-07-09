@@ -59,17 +59,17 @@ include'header.php'
                                 }
                             }
                             ?>
-                        </select>
+                        </select> 
                     </td>
-                    <td><input type="submit" value="Thêm mới" class="btn btn-default"></td>
-                </tr>
+                    <td><input type="submit" value="Thêm mới" class="btn btn-success"></td>
+                </tr> 
                 <?php
                 echo form_close();
                 ?>
                 <?php
                 if(isset($lop)){
                     $i = 1;
-                    foreach($lop as $row){
+                    foreach($lop as $row){ 
                         ?>
                 <tr>
                     <td>

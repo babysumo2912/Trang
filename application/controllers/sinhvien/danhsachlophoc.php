@@ -4,11 +4,13 @@ class danhsachlophoc extends CI_Controller{
 	    $data = array();
 	    $data['mamh'] = $mamh;
 	    $data['nhommonhoc'] = $nhommonhoc;
+	    $hocki = $this->home_models->hocki();
+		foreach ($hocki as $hk) {};
 		 $session_sinhvien = $this->session->userdata('masinhvien');
 		if(isset($session_sinhvien)){
 		    $data['session_sv'] = $session_sinhvien;
 			$data['sinhvien'] = $this->sinhvien_models->infomation($session_sinhvien);
-            $danhsachsinhvien = $this->monhoc_models->getdanhsach($mamh,$nhommonhoc);
+            $danhsachsinhvien = $this->monhoc_models->getdanhsach1($mamh,$nhommonhoc,$hk->id_hocki);
             if($danhsachsinhvien){
                 $data['danhsachsinhvien'] = $danhsachsinhvien;
             }

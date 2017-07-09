@@ -6,13 +6,22 @@ include'header.php';
 ?>
 <section class="row">
     <div class="max">
-        <div class="text-center" style="max-width: 500px; border: 1px #ccc solid; margin: 0 auto;padding: 10px; margin-bottom: 10px">
+        <div style="max-width: 500px; border: 1px #ccc solid; margin: 0 auto;padding: 10px; margin-bottom: 10px; margin-top: 20px">
             <?php if(isset($sinhvien)){
                 foreach ($sinhvien as $row){
             ?>
-            <label for="">Mã sinh viên:</label>&nbsp;<span> <?php echo $row->masinhvien?></span><br>
-            <label for="">Tên sinh viên:</label>&nbsp;<span> <?php echo $row->tensinhvien?></span><br>
-            <label for="">Lớp sinh viên:</label>&nbsp;<span> <?php echo $row->malop?></span><br>
+            <div style="font-family: Times; font-size: 17; line-height: 0.7;">
+                    <p>Mã sinh viên:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> <?php echo $row->masinhvien?></b></p>
+                    <p>Tên sinh viên:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $row->tensinhvien?></b></p>
+                   <p>Phái:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $row->phai?></b></p>
+                    <p>Ngày sinh:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $row->ngaysinh?></b></p>
+                    <p>Nơi sinh:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $row->quequan?></b></p>
+                    <p>Hệ đào tạo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>Lớp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>Khoa: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>Chuyên ngành:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+
             <?php
                 }
             }?>
@@ -22,8 +31,8 @@ include'header.php';
 <section class="row">
     <div class="max">
         <table class="table table-hover table-bordered">
-            <caption>Danh sách môn học đã chọn</caption>
-            <tr>
+            <caption style="font-family: Times; font-size: 18">Danh sách môn học đã chọn</caption>
+            <tr style="font-family: Times; font-size: 18; font-weight: bold;">
                 <td>STT</td>
                 <td>Mã môn học</td>
                 <td>Tên môn học</td>

@@ -1,109 +1,89 @@
-<?php 
-include'header.php';;
-
+<?php  
+include'header.php';
  ?>
- 
- <?php 
- if(isset($tenlop)){
- 	foreach ($tenlop as $key) {
- 		
- 	}
- }
-  ?>
  <section class="row">
- 	<div class="max">
- 		<h2>Danh sách sinh viên lớp <?php echo $key->tenlop ?></h2>
- 	
- 	<?php 
- 	if(isset($data1)){
- 		?>
- 		<table class="table table-bordered">
- 			<tr>
- 				<td>STT</td>
- 				<td>Tên sinh viên</td>
- 				<td>Mã sinh viên</td>
- 				<td>Điểm tổng kết</td>
- 				<td>Điểm rèn luyện</td>
- 				<td>Học bổng</td>
- 			</tr>
- 		
- 		<?php
+    <div class="max">
+        <p style="text-align: center;font-family: Times; font-size: 26">Danh sách Sinh viên lớp <?php 
+        if(isset($tenlop)){
+            foreach ($tenlop as $tl) {
+                echo $tl->tenlop;
+            }
+        }
 
- 		$i = 0;
- 		foreach ($data1 as $value) {
- 			$i++;
- 			$hocki = $this->home_models->hocki();
-	        foreach ($hocki as $hk) {};
-	        $diemrenluyen = $this->giaovien_models->get_info1($value->masinhvien,'masinhvien','tb_diemrenluyen');
-	        foreach ($diemrenluyen as $drl) {};
-	        $danhsachmonhoc_sinhvien = $this->sinhvien_models->danhsachmonhoc_hk($value->masinhvien,$hk->id_hocki);
-            if($danhsachmonhoc_sinhvien){
-	            $tongdiem = 0;
-        		$tongdiem10 = 0;
-        		$sotinchidat = 0;
-                foreach ($danhsachmonhoc_sinhvien as $svhk) {
-	            if($svhk->TK10 >=4.0){
-                    if($svhk->TKCH == "A"){
-                        $heso = 4;
-                    }
-                    if($svhk->TKCH == "B+"){
-                        $heso = 3.5;
-                    }
-                    if($svhk->TKCH == "B"){
-                        $heso = 3;
-                    }
-                    if($svhk->TKCH == "C+"){
-                        $heso = 2.5;
-                    }
-                    if($svhk->TKCH == "C"){
-                        $heso = 2;
-                    }
-                    if($svhk->TKCH == "D+"){
-                        $heso = 1.5;
-                    }
-                    if($svhk->TKCH == "D"){
-                        $heso = 1;
-                    }
-                    if($svhk->TKCH == "F"){
-                        $heso = 0;
-                    }
-                     $monhoc = $this->monhoc_models->getinfo($svhk->mamh);
-                    foreach($monhoc as $mh){};
-                    $sotinchidat += $mh->sotinchi;
-                    $tongdiem += ($heso*$mh->sotinchi);
-                    $tongdiem10+=($svhk->TK10*$mh->sotinchi);
-                }
-                
-                }
-            }else $data['danhsachmonhoc_sinhvien'] = '';
- 			?>
- 			<tr 
- 			<?php if(round($tongdiem/$sotinchidat,2)>=3.2 && $drl->diemrl >=75){
-			?>
-			style="background: #ccc";
-			<?php
-			} ?>
- 			>
- 				<td><?php echo $i; ?></td>
- 				<td><?php echo $value->tensinhvien ?></td>
- 				<td><?php echo $value->masinhvien ?></td>
- 				<td><?php echo round($tongdiem/$sotinchidat,2) ?></td>
- 				<td><?php echo $drl->diemrl ?></td>
- 				<td>
- 					<?php if(round($tongdiem/$sotinchidat,2)>=3.2 && $drl->diemrl >=75){
- 						?>
- 						<i class="fa fa-check"></i>
- 						<?php
- 						} ?>
- 				</td>
- 			</tr>
- 			<?php
- 		}
- 		?>
- 		</table>
- 		<?php
- 	}
+         ?></p>
+         <a href="<?php echo base_url() ?>report/report_ds/<?php echo $malop ?>" class="btn btn-success">In Danh Sách</a>
+         <hr>
+         <div>
+             <table class="table table-bordered">
+                 <tr style="text-align: center;font-weight: bold; font-family: Times; font-size: 18">
+                     <td>STT</td>
+                     <td>Mã sinh viên</td>
+                     <td>Tên sinh viên</td>
+                     <td>Giới tính</td>
+                     <td>Ngày sinh</td>
+                     <td>Nơi sinh</td>
+                     <td>Điểm TB hệ 4</td>
+                     <td>Điểm rèn luyện</td>
+                 </tr>
 
- 	 ?>
- 	 </div>
+                 <?php 
+                 $hocki = $this->home_models->hocki();
+                 foreach ($hocki as $hk) {};
+                 if(isset($data1)){
+                    $i = 0;
+                    foreach($data1 as $row){
+                        $tinchi_1ki = $this->sinhvien_models->gettinchi($hk->id_hocki,$row->masinhvien);
+                        $sum = $this->sinhvien_models->get_tong($hk->id_hocki,$row->masinhvien);
+                        $diemrl = $this->sinhvien_models->get_drl($hk->id_hocki,$row->masinhvien);
+                        $i ++;
+                        // $this->
+
+                ?>
+                <tr
+                <?php 
+                if($tinchi_1ki != 0){
+                    if(round($sum/$tinchi_1ki,2) >= 3.6 && $diemrl >= 85){
+                ?> 
+                style="background: red;color: white";
+                <?php
+                    }else{
+                    if(round($sum/$tinchi_1ki,2) >= 3.2 && $diemrl >= 80){
+                    ?> 
+                    style="background: yellow";
+                    <?php
+                    }}
+                }
+
+                 ?>
+
+                >
+                    <td><?php echo $i ?></td>
+                    <td><?php echo $row->masinhvien ?></td>
+                    <td><?php echo $row->tensinhvien ?></td>
+                    <td style="text-align: center;"><?php echo $row->phai ?></td>
+                    <td style="text-align: center;"><?php echo $row->ngaysinh ?></td>
+                    <td ><?php echo $row->quequan ?></td>
+                    <td style="text-align: center;">
+                        <?php 
+                        if($tinchi_1ki == 0){
+                            echo 0;
+                        }else{
+                            echo round($sum/$tinchi_1ki,2);
+                        }
+
+                         ?>
+                    </td>
+                    <td style="text-align: center;"><?php echo $diemrl ?></td>
+                    
+                    
+                </tr>
+                <?php
+                    }
+                 }
+
+
+                ?>
+             </table>
+         </div>
+    </div>
  </section>

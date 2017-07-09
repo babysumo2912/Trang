@@ -1,11 +1,13 @@
-<?php
+<?php 
 class Home extends CI_Controller{
     public function index(){
         $data = array();
         $session_gv = $this->session->userdata('id_gv');
+        $hocki = $this->home_models->hocki();
+        foreach ($hocki as $hk) {};
         if(isset($session_gv)){
             $gv = $this->giaovien_models->infomation($session_gv);
-            $class = $this->giaovien_models->getclass($session_gv);
+            $class = $this->giaovien_models->getclass($session_gv,$hk->id_hocki);
             if($gv){
                 foreach ($gv as $key) {
                     $data['tengiaovien'] = $key->tengiaovien;
@@ -13,7 +15,7 @@ class Home extends CI_Controller{
             }
             if($class){
                 $data['class'] = $class;
-            }
+            }else $data['class'] = '';
             $chunhiem = $this->giaovien_models->chunhiem($session_gv);
             if($chunhiem){
                 $data['chunhiem'] = $chunhiem;
@@ -59,7 +61,7 @@ class Home extends CI_Controller{
         redirect('giaovien/home');
     }
     public function diemsinhvien($mamonhoc,$nhommonhoc,$id_hocki){
-        $check = $this->monhoc_models->getdanhsach($mamonhoc,$nhommonhoc,$id_hocki);
+        $check = $this->monhoc_models->getdanhsach1($mamonhoc,$nhommonhoc,$id_hocki);
         if($check){
             $data['dssv'] = $check;
         }else{ $data['err'] = "Khong tim thay lop phu hop!"; }

@@ -1,4 +1,4 @@
-<?php
+<?php 
 class baivietmoi extends CI_Controller{
     function index(){
         $data = array();

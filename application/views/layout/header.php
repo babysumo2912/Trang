@@ -18,7 +18,7 @@
     <body class= "body">
     <header>
         <div class = "text-center logo" style="margin: 0;">
-            <img src="<?php echo base_url()?>public/img/style/HUMG.png" alt="">
+            <img src="<?php echo base_url()?>public/img/style/HUMG.png" alt=""> 
             <h1 style = "margin: -30px 0 50px 0; padding: 0;">HUMG Connection</h1>
         </div>
         <nav class="hd">
@@ -29,17 +29,17 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                        <i class = "fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand home" href="#"><i class = "fa fa-home"></i></a>
+                    <a class="navbar-brand home" href="<?php echo base_url() ?>"><i class = "fa fa-home"></i></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="font-size: 14;font-style: Times">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Giới Thiệu <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Tin Tức</a></li>
-                        <li><a href="<?php echo base_url()?>sinhvien/dangkimonhoc">Đăng kí môn học</a></li>
-                        <li><a href="<?php echo base_url()?>sinhvien/xemhocphi">Xem học phí</a></li>
-                        <li><a href="<?php echo base_url()?>sinhvien/xemdiem">Xem điểm</a></li>
+                        <li class="active"><a href="#">GIỚI THIỆU <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">TIN TỨC</a></li>
+                        <li><a href="<?php echo base_url()?>sinhvien/dangkimonhoc">ĐĂNG KÍ MÔN HỌC</a></li>
+                        <li><a href="<?php echo base_url()?>sinhvien/xemhocphi">XEM HỌC PHÍ</a></li>
+                        <li><a href="<?php echo base_url()?>sinhvien/xemdiem">XEM ĐIỂM</a></li>
                     </ul>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">

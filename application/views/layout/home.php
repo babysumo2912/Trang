@@ -71,92 +71,7 @@
                     </div>
                 </div>  
             </div>
-            <!-- <div class = "col-md-12 new-center">
-                <div class = "col-md-12 head-title">
-                    <a href = "" alt = "Xuất khẩu lao động">Văn hóa</a>
-                </div>
-                <div class = "col-md-12 content-title">
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="<?php echo base_url()?>public/img/style/tuyen-18-nu-don-hang-det-may-luong-cao.jpg" alt="...">
-                        </div>
-                        <div class="media-body">
-                            <a href="">Nhiều cơ hội việc làm tiếng Nhật trình độ từ N3 trở lên năm 2017</a><br>
-                            <p><i class = "fa fa-calendar">&nbsp;20/03/2017 15:30</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="<?php echo base_url()?>public/img/style/tuyen-18-nu-don-hang-det-may-luong-cao.jpg" alt="...">
-                        </div>
-                        <div class="media-body">
-                            <a href="">Nhiều cơ hội việc làm tiếng Nhật trình độ từ N3 trở lên năm 2017</a><br>
-                            <p><i class = "fa fa-calendar">&nbsp;20/03/2017 15:30</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="<?php echo base_url()?>public/img/style/tuyen-18-nu-don-hang-det-may-luong-cao.jpg" alt="...">
-                        </div>
-                        <div class="media-body">
-                            <a href="">Nhiều cơ hội việc làm tiếng Nhật trình độ từ N3 trở lên năm 2017</a><br>
-                            <p><i class = "fa fa-calendar">&nbsp;20/03/2017 15:30</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="<?php echo base_url()?>public/img/style/tuyen-18-nu-don-hang-det-may-luong-cao.jpg" alt="...">
-                        </div>
-                        <div class="media-body">
-                            <a href="">Nhiều cơ hội việc làm tiếng Nhật trình độ từ N3 trở lên năm 2017</a><br>
-                            <p><i class = "fa fa-calendar">&nbsp;20/03/2017 15:30</i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class = "col-md-12 new-center">
-                <div class = "col-md-12 head-title">
-                    <a href = "" alt = "Xuất khẩu lao động">Tin tức</a>
-                </div>
-                <div class = "col-md-12 content-title">
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="<?php echo base_url()?>public/img/style/tuyen-18-nu-don-hang-det-may-luong-cao.jpg" alt="...">
-                        </div>
-                        <div class="media-body">
-                            <a href="">Nhiều cơ hội việc làm tiếng Nhật trình độ từ N3 trở lên năm 2017</a><br>
-                            <p><i class = "fa fa-calendar">&nbsp;20/03/2017 15:30</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="<?php echo base_url()?>public/img/style/tuyen-18-nu-don-hang-det-may-luong-cao.jpg" alt="...">
-                        </div>
-                        <div class="media-body">
-                            <a href="">Nhiều cơ hội việc làm tiếng Nhật trình độ từ N3 trở lên năm 2017</a><br>
-                            <p><i class = "fa fa-calendar">&nbsp;20/03/2017 15:30</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="<?php echo base_url()?>public/img/style/tuyen-18-nu-don-hang-det-may-luong-cao.jpg" alt="...">
-                        </div>
-                        <div class="media-body">
-                            <a href="">Nhiều cơ hội việc làm tiếng Nhật trình độ từ N3 trở lên năm 2017</a><br>
-                            <p><i class = "fa fa-calendar">&nbsp;20/03/2017 15:30</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="<?php echo base_url()?>public/img/style/tuyen-18-nu-don-hang-det-may-luong-cao.jpg" alt="...">
-                        </div>
-                        <div class="media-body">
-                            <a href="">Nhiều cơ hội việc làm tiếng Nhật trình độ từ N3 trở lên năm 2017</a><br>
-                            <p><i class = "fa fa-calendar">&nbsp;20/03/2017 15:30</i></p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            
         </div>
         <div class = "col-md-4">
             <div class = "new-right">
@@ -168,46 +83,7 @@
                         <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
                         <a href="" title="Thành phần bộ phận của công ty">Sinh hoạt lớp K57</a>
                     </li>
-                    <!-- <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li>
-                    <li>
-                        <i class = "fa fa-calendar">&nbsp;20/03/2017</i> <br>
-                        <a href="" title="Thành phần bộ phận của công ty">Thành phần bộ phận tư vấn lao động của công ty</a>
-                    </li> -->
+                    
                 </ul>
             </div>
             <div class = "new-right">
@@ -218,42 +94,6 @@
                     <li>
                         <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Hello Humg</a>
                     </li>
-                    <!-- <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp;<a href="" title="Bài 1: Xin chào, tôi tên là ...">Bài 1: Xin chào, tôi tên là ... </a>
-                    </li> -->
 
                 </ul>
             </div>  
@@ -274,24 +114,7 @@
                         }
                     }
                     ?>
-                    <!-- <li>
-                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;<a href="" title="Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ">Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;<a href="" title="Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ">Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;<a href="" title="Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ">Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;<a href="" title="Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ">Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;<a href="" title="Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ">Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ </a>
-                    </li>
-                    <li>
-                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;<a href="" title="Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ">Đi lao động Nhật Bản - kiếm tiền lao động hay hưởng thụ </a>
-                    </li> -->
+                    
                 </ul>
             </div>
         </div>

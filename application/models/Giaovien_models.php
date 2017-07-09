@@ -1,5 +1,5 @@
-<?php
-class giaovien_models extends CI_Model {
+<?php     
+class giaovien_models extends CI_Model { 
     public function login($data){
         $this->db->where('magiaovien',$data['magiaovien']);
         $check = $this->db->get('tb_giaovien');
@@ -27,17 +27,19 @@ class giaovien_models extends CI_Model {
             return $query->result();
         }
     }
-    public function getclass($magiaovien){
+    public function getclass($magiaovien,$id_hocki){
+        $this->db->where('id_hocki',$id_hocki);
         $this->db->where('magiaovien',$magiaovien);
         $class = $this->db->get('tb_nhommonhoc');
         if($class->num_rows()>0){
             return $class->result();
         }else return false;
     }
-    public function add_diem($mamonhoc,$nhommonhoc,$data){
+    public function add_diem($mamonhoc,$nhommonhoc,$id_hocki,$data){
 //        echo $data['masinhvien'];
         $this->db->where('mamh',$mamonhoc);
         $this->db->where('nhommonhoc',$nhommonhoc);
+        $this->db->where('id_hocki',$id_hocki);
         $this->db->where('masinhvien',$data['masinhvien']);
         $query = $this->db->update('tb_danhsachsinhvien',$data);
        if(isset($query)){
@@ -107,6 +109,13 @@ class giaovien_models extends CI_Model {
         if($query->num_rows()>0){
             return $query->result();
         }else return false;
+    }
+    function getall(){
+        $giaovien = $this->db->get('tb_giaovien');
+        if($giaovien->num_rows() > 0){
+            return $giaovien->result();     
+        }else return false;
+        
     }
 }
 

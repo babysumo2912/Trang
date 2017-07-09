@@ -6,17 +6,17 @@ include'header.php';
         
     
     <div class="text-center">
-        <h2>Danh sách lớp học</h2>
+        <p style="font-family: Times;font-size: 20;font-weight: bold;">DANH SÁCH LỚP GIẢNG DẠY TRONG KỲ</p>
     </div>
     <table class="table table-bordered table-hover">
-        <tr>
+        <tr style="font-family: times;text-align: center;font-size: 17; font-weight: bold;">
             <td>STT</td>
             <td>Mã môn học</td>
             <td>Tên môn học</td>
             <td>Tên nhóm</td>
         </tr>
         <?php
-        if(isset($class)){
+        if(isset($class) && $class!=''){
             $i = 0;
             foreach ($class as $key){
                 $i++;
@@ -25,7 +25,7 @@ include'header.php';
                 foreach ($tenmonhoc as $monhoc){};
             }
         ?>
-        <tr>
+        <tr style="font-family: times;text-align: center;font-size: 17"> 
             <td><?php echo $i ?></td>
             <td><?php echo $key->mamh?></td>
             <td><a href="<?php echo base_url()?>giaovien/home/diemsinhvien/<?php echo $key->mamh?>/<?php echo $key->nhommonhoc?>/<?php echo $key->id_hocki?>" style="display: block"><?php echo $monhoc->tenmonhoc?></a></td>
@@ -38,18 +38,18 @@ include'header.php';
     </table>
     </div>
     <?php 
-    if(isset($chunhiem)){
+    if(isset($chunhiem) && $chunhiem!=''){
         echo form_open('giaovien/Diem/add_drl/');
         foreach ($chunhiem as $key){}
      ?>
     
     <div class="col-md-6">
     <div class="text-center">
-        <h2>Danh sách sinh viên</h2>
+        <p style="font-family: Times;font-size: 20;font-weight: bold;">DANH SÁCH LỚP CHỦ NHIỆM</p>
     </div>
-    <caption>Lớp: <?php echo $key->tenlop ?></caption>
+    <p style="font-family: Times;">Lớp: <?php echo $key->tenlop ?></p>
     <table class="table table-bordered">
-        <tr>
+        <tr style="font-family: times;text-align: center;font-size: 17">
             <td>STT</td>
             <td>Mã Sinh viên</td>
             <td>Tên sinh viên</td>
@@ -63,16 +63,22 @@ include'header.php';
             if($sinhvien){
                 foreach ($sinhvien as $sv){;
                     $diemrenluyen = $this->giaovien_models->get_info1($sv->masinhvien,'masinhvien','tb_diemrenluyen');
-                    foreach ($diemrenluyen as $drl) {};
-                    echo form_hidden('diem['.$drl->masinhvien.'][masinhvien]', $drl->masinhvien);
-                    echo form_hidden('diem['.$drl->masinhvien.'][diemrl]', $drl->diemrl);
-                    $i++;
+                    if($diemrenluyen == false){
+                        $diemrenluyen = 0;
+                    }else{
+                        foreach ($diemrenluyen as $drl) {};
+                        echo form_hidden('diem['.$drl->masinhvien.'][masinhvien]', $drl->masinhvien);
+                        echo form_hidden('diem['.$drl->masinhvien.'][diemrl]', $drl->diemrl);
+                        $i++;
+                        $diemrenluyen = $drl->diemrl;
+                    }
+                    
         ?>
-        <tr>
-            <td><?php echo $i ?></td>
-            <td><?php echo $sv->masinhvien?></td>
+        <tr style="font-family: times;font-size: 17">
+            <td style="text-align: center;"><?php echo $i ?></td>
+            <td style="text-align: center;"><?php echo $sv->masinhvien?></td>
             <td><?php echo $sv->tensinhvien ?></td>
-            <td style="width:100px">
+            <td style="width:100px; text-align: center;">
                 <?php
                 $data = array(
                 'type' => 'number',
@@ -80,7 +86,7 @@ include'header.php';
                 'min' => '0',
                 'max' => '100',
                 'name' => 'diem['.$drl->masinhvien.'][diemrl]',
-                'value' => $drl->diemrl,
+                'value' => $diemrenluyen,
                 );
                 echo form_input($data);
                 ?>

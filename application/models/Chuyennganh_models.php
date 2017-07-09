@@ -1,4 +1,4 @@
-<?php 
+<?php   
 class chuyennganh_models extends CI_Model{
 	public function get(){
 		$get = $this->db->get('tb_bomon');
@@ -10,7 +10,7 @@ class chuyennganh_models extends CI_Model{
         $this->db->where('mabomon',$data['mabomon']);
         $check= $this->db->get('tb_bomon');
         if($check->num_rows() > 0){
-            return 0;
+            return 0; 
         }else{
             $add = $this->db->insert('tb_bomon',$data);
             if(isset($add)){
@@ -36,8 +36,8 @@ class chuyennganh_models extends CI_Model{
 		return true;
 		
 	}
-	public function get_chuyennganh($mabomon,$makhoa){
-        $this->db->where('mabomon',$mabomon);
+	public function get_chuyennganh($makhoa){
+        // $this->db->where('mabomon',$mabomon);
         $this->db->where('makhoa',$makhoa);
         $query = $this->db->get('tb_bomon');
         return $query->result();
